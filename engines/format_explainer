@@ -1,0 +1,109 @@
+{} for dictionary. [] for list. Array[] for ndarray. :{} for element tree.
+
+COCO annotation file (instance_train2017.json)
+{
+    "info": {
+        "description": str,
+        "url": str,
+        "version": str,
+        "year": int,
+        "contributor": str,
+        "date_created": str,
+    },
+   "licenses":
+        [{"url": str, "id": int, "name": str, }, ],
+   "images":
+        [{"license": int, "file_name": str, "coco_url": str, "height": int, "width": int, "date_captured": str, "flickr_url": str, "id": int}, ],
+   "annotations":
+        [{"segmentation": [[int, ], ], "area": float, "iscrowd": int, "image_id": int, "bbox": [float (x), float (y), float (w), float (h)], "category_id": int, "id": int}, ],
+}
+
+
+CustomDataset annotation file
+[
+    {
+        'filename': 'a.jpg',
+        'width': 1280,
+        'height': 720,
+        'ann': {
+            'bboxes': <np.ndarray> (n, 4),
+            'labels': <np.ndarray> (n, ),
+            'bboxes_ignore': <np.ndarray> (k, 4),
+            'labels_ignore': <np.ndarray> (k, ) (optional field)
+        }
+    } x number-of-images
+]
+
+
+detector output (result.pickle)
+[
+    [
+        Array[
+            Array[
+                float (x), float (y), float (x), float (y), float (score)
+            ] x number-of-proposals
+        ] x number-of-non-negative-classes
+    ] x number-of-images
+]
+
+
+results2json (convert to coco format) output (result.bbox.json)
+[
+    {
+        "image_id": int, "bbox": [float (w), float (y), float (w), float (h)], "score": float, "category_id": int
+    } x number-of-proposals
+]
+
+
+VOC annotation file (2007_000241.xml)
+annotation: {
+    folder: str
+    filename: str
+    source: {
+        database: str
+        annotation: str
+        image: flickr
+    }
+    size: {
+        width: int
+        height: int
+        depth: int
+    }
+    segmented: int
+    object: {
+        name: str
+        pose: str
+        truncated: int
+        difficult: int
+        bndbox: {
+            xmin: int (x)
+            ymin: int (y)
+            xmax: int (x)
+            yman: int (y)
+        }
+    } x number-of-objects
+}
+
+
+MobileDentist annotation file (711train.json)
+[
+    {
+        'filename': 'a',
+        'width': 1280,
+        'height': 720,
+        "pigment": int,
+        "soft_deposit": int,
+        'ann': {
+            'bboxes': <np.ndarray> (n, 4 (xmin, ymin, xmax, ymax)),
+            'labels': <np.ndarray> (n, ),
+        }
+    } x number-of-images
+]
+
+detection labels:
+0: negative
+1: Periodontal_disease (includes periodontitis and gingivitis)
+2：abscess
+3: caries
+4: wedge_shaped_defect
+5: calculus

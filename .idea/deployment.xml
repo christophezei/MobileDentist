@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="yuan@128.97.89.85:22" autoUploadExternalChanges="true">
+    <serverData>
+      <paths name="yuan@128.97.89.85:22">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/yuan/MobileDentist" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/demo/results" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cleaning/711" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cleaning/711_converted" />
+            <excludedPath local="true" path="$PROJECT_DIR$/demo/results/711_converted" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>
