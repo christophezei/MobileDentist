@@ -2,36 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d58e401-079c-4b3b-ae44-bed981c01100" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_froc.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_roc.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_roc_deprecated.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cores/evaluation/boxwise_strict_froc.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cores/evaluation/boxwise_strict_roc.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cores/evaluation/imagewise_roc.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engines/engine_infer_VGGSSD_multiple_GPU.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engines/inference_func_CPU.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/visualization/compare_detection_and_truth.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/visualization/draw_from_inference_dental.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/MobileDentist.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MobileDentist.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anchor_heads/SSDHead.py" beforeDir="false" afterPath="$PROJECT_DIR$/anchor_heads/SSDHead.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cocoapi_rewrite/PythonAPI/pycocotools/coco.py" beforeDir="false" afterPath="$PROJECT_DIR$/cocoapi_rewrite/PythonAPI/pycocotools/coco.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cocoapi_rewrite/PythonAPI/pycocotools/cocoeval.py" beforeDir="false" afterPath="$PROJECT_DIR$/cocoapi_rewrite/PythonAPI/pycocotools/cocoeval.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cores/utils/coco_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/cores/utils/coco_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detectors/SSD_VGG16_Detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/detectors/SSD_VGG16_Detector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engines/engine_eval_COCO.py" beforeDir="false" afterPath="$PROJECT_DIR$/engines/engine_eval_COCO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engines/engine_infer_multiple_GPU.sh" beforeDir="false" afterPath="$PROJECT_DIR$/engines/engine_infer_multiple_GPU.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engines/engine_simple_infer_SSD.py" beforeDir="false" afterPath="$PROJECT_DIR$/engines/engine_simple_infer_SSD.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engines/format_explainer" beforeDir="false" afterPath="$PROJECT_DIR$/engines/format_explainer" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/inference.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/color.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/color.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/engine_draw_from_result_coco.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/engine_draw_from_truth_coco.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/draw_from_truth_coco.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/engine_draw_from_truth_dental.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/draw_from_truth_dental.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/image.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/image.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/inspect_pkl.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/inspect_pkl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datasets/coco/annotations/captions_train2017.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datasets/coco/annotations/person_keypoints_train2017.json" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +62,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cores/evaluation/boxwise_strict_roc.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="161">
@@ -102,6 +75,11 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cores/evaluation/boxwise_strict_froc.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_roc.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="346">
@@ -111,6 +89,11 @@
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_froc.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -177,23 +160,6 @@
               <caret line="103" column="11" lean-forward="true" selection-start-line="103" selection-start-column="11" selection-end-line="103" selection-end-column="11" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cores/utils/coco_utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="228" column="51" selection-start-line="228" selection-start-column="51" selection-end-line="228" selection-end-column="51" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_froc.py">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -338,11 +304,6 @@
               <item name="MobileDentist" type="462c0819:PsiDirectoryNode" />
               <item name="cores" type="462c0819:PsiDirectoryNode" />
               <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MobileDentist" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MobileDentist" type="462c0819:PsiDirectoryNode" />
-              <item name="datasets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MobileDentist" type="b2602c69:ProjectViewProjectNode" />
@@ -556,12 +517,12 @@
       <option name="presentableId" value="Default" />
       <updated>1563333854306</updated>
       <workItem from="1563333856106" duration="31566000" />
-      <workItem from="1563575541918" duration="177145000" />
+      <workItem from="1563575541918" duration="178047000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="208711000" />
+    <option name="totallyTimeSpent" value="209613000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="0" width="1920" height="1080" extended-state="0" />
@@ -877,12 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cores/evaluation/boxwise_strict_froc.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_froc.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm2019.1/remote_sources/-479841305/144599718/sklearn/metrics/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -896,16 +851,6 @@
           <caret line="228" column="51" selection-start-line="228" selection-start-column="51" selection-end-line="228" selection-end-column="51" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cores/evaluation/imagewise_roc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="746">
-          <caret line="147" column="1" lean-forward="true" selection-start-line="147" selection-start-column="1" selection-end-line="147" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -940,16 +885,6 @@
           <caret line="229" column="34" lean-forward="true" selection-start-line="229" selection-start-column="34" selection-end-line="229" selection-end-column="34" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_roc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="104" column="23" lean-forward="true" selection-start-line="104" selection-start-column="23" selection-end-line="104" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -994,6 +929,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cores/evaluation/imagewise_roc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="746">
+          <caret line="147" column="1" lean-forward="true" selection-start-line="147" selection-start-column="1" selection-end-line="147" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cores/evaluation/boxwise_strict_froc.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/cores/evaluation/boxwise_strict_roc.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -1003,6 +951,19 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_roc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="104" column="23" lean-forward="true" selection-start-line="104" selection-start-column="23" selection-end-line="104" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_froc.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
