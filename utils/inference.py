@@ -9,7 +9,7 @@ import shutil
 from mmcv.runner import get_dist_info
 from utils.image_utils import to_tensor
 
-from visualization.image import imshow_det_bboxes
+from utils.image import imshow_det_bboxes
 
 
 def _prepare_data(img, img_transform, img_scale, img_resize_keep_ratio, img_flip, device):

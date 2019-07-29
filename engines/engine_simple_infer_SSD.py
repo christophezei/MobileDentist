@@ -2,8 +2,8 @@ import warnings
 
 import os
 
-# from detectors.SSD_VGG16_Detector import SSDDetector
-from detectors.SSD_UNET_Detector import SSDDetector
+from detectors.SSD_VGG16_Detector import SSDDetector
+# from detectors.SSD_UNET_Detector import SSDDetector
 from utils.checkpoint import load_checkpoint
 from cores.misc import get_classes
 from cores.pre_processing.image_transform import ImageTransform
@@ -13,6 +13,7 @@ dir_path = os.path.dirname(os.getcwd())
 checkpoint_file = dir_path+'/work_dirs/dental_711_w_pretrained_wt_fix/epoch_100.pth'
 # checkpoint_file = dir_path+'/work_dirs/dental_711_unet/epoch_300.pth'
 device = 'cuda:0'
+# device = 'cpu'
 img = dir_path+'/demo/example.jpg'
 out_file = dir_path+'/demo/example_result.jpg'
 # out_file = dir_path+'/demo/example_result_2.jpg'

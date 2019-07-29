@@ -88,14 +88,14 @@ annotation: {
 MobileDentist annotation file (711train.json)
 [
     {
-        'filename': 'a',
+        'filename': 'a.jpg',
         'width': 1280,
         'height': 720,
         "pigment": int,
         "soft_deposit": int,
         'ann': {
             'bboxes': <np.ndarray> (n, 4 (xmin, ymin, xmax, ymax)),
-            'labels': <np.ndarray> (n, ),
+            'labels': <np.ndarray> (n, ), (label is 1 based, 1 is positive)
         }
     } x number-of-images
 ]
@@ -107,3 +107,15 @@ detection labels:
 3: caries
 4: wedge_shaped_defect
 5: calculus
+
+
+MobileDentist Inference pickle (train_data_result.pickle)
+[
+    [
+        [
+            [
+              x, y, x, y, prob
+            ] x number-of-bboxes
+        ] x number-of-classes
+    ] x number-of-images
+]

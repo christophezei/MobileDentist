@@ -408,6 +408,13 @@ class COCOeval:
                             pass
                         precision[t,:,k,a,m] = np.array(q)
                         scores[t,:,k,a,m] = np.array(ss)
+
+
+        # T: ioutrhshold
+        # R: recall trhsholds
+        # K: cats
+        # A: object area ranges
+        # M: max detections per image
         self.eval = {
             'params': p,
             'counts': [T, R, K, A, M],
@@ -425,75 +432,122 @@ class COCOeval:
         Note this functin can *only* be applied on the default parameter setting
         '''
         def _summarize( ap=1, iouThr=None, areaRng='all', maxDets=100 ):
+            # p = self.params
+            # iStr = ' {:<18} {} @[ IoU={:<9} | area={:>6s} | maxDets={:>3d} ] = {:0.3f}'
+            # titleStr = 'Average Precision' if ap == 1 else 'Average Recall'
+            # typeStr = '(AP)' if ap==1 else '(AR)'
+            # iouStr = '{:0.2f}:{:0.2f}'.format(p.iouThrs[0], p.iouThrs[-1]) \
+            #     if iouThr is None else '{:0.2f}'.format(iouThr)
+            #
+            # aind = [i for i, aRng in enumerate(p.areaRngLbl) if aRng == areaRng]
+            # mind = [i for i, mDet in enumerate(p.maxDets) if mDet == maxDets]
+            # if ap == 1:
+            #     # dimension of precision: [TxRxKxAxM]
+            #     s = self.eval['precision']
+            #     # IoU
+            #     if iouThr is not None:
+            #         # t = np.where(iouThr == p.iouThrs)[0]
+            #         t = np.where(np.isclose(iouThr, p.iouThrs))[0]
+            #         s = s[t]
+            #     s = s[:,:,:,aind,mind]
+            # else:
+            #     # dimension of recall: [TxKxAxM]
+            #     s = self.eval['recall']
+            #     if iouThr is not None:
+            #         # t = np.where(iouThr == p.iouThrs)[0]
+            #         t = np.where(np.isclose(iouThr, p.iouThrs))[0]
+            #         s = s[t]
+            #     s = s[:,:,aind,mind]
+            # if len(s[s>-1])==0:
+            #     mean_s = -1
+            # else:
+            #     mean_s = np.mean(s[s>-1])
+            #
+            # print(iStr.format(titleStr, typeStr, iouStr, areaRng, maxDets, mean_s))
+            # return mean_s
+            raise RuntimeError('not implemented by me')
+
+        def _my_summarize(ap, iouThr, maxDets, show_all_labels):
             p = self.params
-            iStr = ' {:<18} {} @[ IoU={:<9} | area={:>6s} | maxDets={:>3d} ] = {:0.3f}'
-            titleStr = 'Average Precision' if ap == 1 else 'Average Recall'
-            typeStr = '(AP)' if ap==1 else '(AR)'
-            iouStr = '{:0.2f}:{:0.2f}'.format(p.iouThrs[0], p.iouThrs[-1]) \
-                if iouThr is None else '{:0.2f}'.format(iouThr)
 
-            aind = [i for i, aRng in enumerate(p.areaRngLbl) if aRng == areaRng]
-            mind = [i for i, mDet in enumerate(p.maxDets) if mDet == maxDets]
-            if ap == 1:
-                # dimension of precision: [TxRxKxAxM]
-                s = self.eval['precision']
-                # IoU
-                if iouThr is not None:
+            if show_all_labels is False:
+                iStr = ' {:<18} {} @[ IoU={:<9} | maxDets={:>3d} ] = {:0.3f}'
+
+                titleStr = 'Average Precision' if ap == 1 else 'Average Recall'
+                typeStr = '(AP)' if ap==1 else '(AR)'
+                iouStr = '{:0.2f}'.format(iouThr)
+
+                mind = [i for i, mDet in enumerate(p.maxDets) if mDet == maxDets]
+                iouind = [i for i, iou in enumerate(p.iouThrs) if np.isclose(iou, iouThr)]
+
+                #  imgIds     - [all] N img ids to use for evaluation
+                #  catIds     - [all] K cat ids to use for evaluation
+                #  iouThrs    - [.5:.05:.95] T=10 IoU thresholds for evaluation
+                #  recThrs    - [0:.01:1] R=101 recall thresholds for evaluation
+                #  areaRng    - [...] A=4 object area ranges for evaluation
+                #  maxDets    - [1 10 100] M=3 thresholds on max detections per image
+                if ap == 1:
+                    # dimension of precision: [TxRxKxAxM]
+                    s = self.eval['precision']
+                    # IoU
                     # t = np.where(iouThr == p.iouThrs)[0]
-                    t = np.where(np.isclose(iouThr, p.iouThrs))[0]
-                    s = s[t]
-                s = s[:,:,:,aind,mind]
-            else:
-                # dimension of recall: [TxKxAxM]
-                s = self.eval['recall']
-                if iouThr is not None:
+                    # t = np.where(np.isclose(iouThr, p.iouThrs))[0]
+                    s = s[iouind, :, :, :, mind]
+                else:
+                    # dimension of recall: [TxKxAxM]
+                    s = self.eval['recall']
                     # t = np.where(iouThr == p.iouThrs)[0]
-                    t = np.where(np.isclose(iouThr, p.iouThrs))[0]
-                    s = s[t]
-                s = s[:,:,aind,mind]
-            if len(s[s>-1])==0:
-                mean_s = -1
+                    # t = np.where(np.isclose(iouThr, p.iouThrs))[0]
+                    s = s[iouind, :, :, mind]
+
+                mean_s = np.mean(s)
+                print(iStr.format(titleStr, typeStr, iouStr, maxDets, mean_s))
+
+                return mean_s
+
             else:
-                mean_s = np.mean(s[s>-1])
+                iStr = ' {:<18} {} @[ IoU={:<9} | maxDets={:>3d} ] = {:0.3f} | Precisions {}'
 
-            print(iStr.format(titleStr, typeStr, iouStr, areaRng, maxDets, mean_s))
-            return mean_s
+                titleStr = 'Average Precision' if ap == 1 else 'Average Recall'
+                typeStr = '(AP)' if ap == 1 else '(AR)'
+                iouStr = '{:0.2f}'.format(iouThr)
 
-        def _my_summarize(ap, iouThr, maxDets):
-            p = self.params
+                mind = [i for i, mDet in enumerate(p.maxDets) if mDet == maxDets]
+                iouind = [i for i, iou in enumerate(p.iouThrs) if np.isclose(iou, iouThr)]
 
-            iStr = ' {:<18} {} @[ IoU={:<9} | maxDets={:>3d} ] = {:0.3f}'
+                if ap == 1:
+                    # dimension of precision: [TxRxKxAxM]
+                    s = self.eval['precision']
+                    # IoU
+                    # t = np.where(iouThr == p.iouThrs)[0]
+                    # t = np.where(np.isclose(iouThr, p.iouThrs))[0]
+                    s = s[iouind, :, :, :, mind]
+                else:
+                    # dimension of recall: [TxKxAxM]
+                    s = self.eval['recall']
+                    # t = np.where(iouThr == p.iouThrs)[0]
+                    # t = np.where(np.isclose(iouThr, p.iouThrs))[0]
+                    s = s[iouind, :, :, mind]
 
-            titleStr = 'Average Precision' if ap == 1 else 'Average Recall'
-            typeStr = '(AP)' if ap==1 else '(AR)'
-            iouStr = '{:0.2f}'.format(iouThr)
+                catwiseStr = []
+                if ap == 1:
+                    for index, cat in enumerate(p.catIds):
+                        catwiseStr.append('@ {} = {} '.format(cat, np.mean(s[:, :, index, :])))
+                else:
+                    for index, cat in enumerate(p.catIds):
+                        catwiseStr.append('@ {} = {} '.format(cat, np.mean(s[:, index, :])))
 
-            mind = [i for i, mDet in enumerate(p.maxDets) if mDet == maxDets]
-            iouind = [i for i, iou in enumerate(p.iouThrs) if np.isclose(iou, iouThr)]
+                mean_s = np.mean(s)
+                catwiseStrCompressed = '|'.join(catwiseStr)
+                print(iStr.format(titleStr, typeStr, iouStr, maxDets, mean_s, catwiseStrCompressed))
 
-            if ap == 1:
-                # dimension of precision: [TxRxKxAxM]
-                s = self.eval['precision']
-                # IoU
-                # t = np.where(iouThr == p.iouThrs)[0]
-                # t = np.where(np.isclose(iouThr, p.iouThrs))[0]
-                s = s[iouind, :, :, :, mind]
-            else:
-                # dimension of recall: [TxKxAxM]
-                s = self.eval['recall']
-                # t = np.where(iouThr == p.iouThrs)[0]
-                # t = np.where(np.isclose(iouThr, p.iouThrs))[0]
-                s = s[iouind, :, :, mind]
-
-            mean_s = np.mean(s)
-
-            print(iStr.format(titleStr, typeStr, iouStr, maxDets, mean_s))
-            return mean_s
-
+                return mean_s
 
         def _summarizeDets():
             num_ious = len(self.params.iouThrs)
             num_dets = len(self.params.maxDets)
+
+            show_all_labels = self.params.show_all_labels
 
             stats = np.zeros((2*num_ious*num_dets,))
             # stats[0] = _summarize(1)
@@ -508,13 +562,16 @@ class COCOeval:
             # stats[9] = _summarize(0, areaRng='small', maxDets=self.params.maxDets[2])
             # stats[10] = _summarize(0, areaRng='medium', maxDets=self.params.maxDets[2])
             # stats[11] = _summarize(0, areaRng='large', maxDets=self.params.maxDets[2])
-            for i in range(num_ious):
-                for j in range(num_dets):
-                    stats[i*num_dets+j] = _my_summarize(ap=1, iouThr=self.params.iouThrs[i], maxDets=self.params.maxDets[j])
+
+            print('{} images in total'.format(len(self.params.imgIds)))
 
             for i in range(num_ious):
                 for j in range(num_dets):
-                    stats[num_ious*num_dets+i*num_dets+j] = _my_summarize(ap=0, iouThr=self.params.iouThrs[i], maxDets=self.params.maxDets[j])
+                    stats[i*num_dets+j] = _my_summarize(ap=1, iouThr=self.params.iouThrs[i], maxDets=self.params.maxDets[j], show_all_labels=show_all_labels)
+
+            for i in range(num_ious):
+                for j in range(num_dets):
+                    stats[num_ious*num_dets+i*num_dets+j] = _my_summarize(ap=0, iouThr=self.params.iouThrs[i], maxDets=self.params.maxDets[j], show_all_labels=show_all_labels)
 
             return stats
 
@@ -582,6 +639,7 @@ class Params:
         self.areaRng = [[0 ** 2, 1e5 ** 2], [0 ** 2, 32 ** 2], [32 ** 2, 96 ** 2], [96 ** 2, 1e5 ** 2]]
         self.areaRngLbl = ['all', 'small', 'medium', 'large']
         self.useCats = 1
+        self.show_all_labels = False
 
     def setKpParams(self):
         self.imgIds = []

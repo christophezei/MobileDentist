@@ -1,5 +1,5 @@
 import os
-from visualization.image import imshow_det_bboxes
+from utils.image import imshow_det_bboxes
 import mmcv
 from cocoapi_rewrite.PythonAPI.pycocotools.coco import COCO
 import numpy as np

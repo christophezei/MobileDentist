@@ -38,6 +38,8 @@ class SSDDetector(nn.Module):
             score_thr=0.02,
             nms_cfg=['nms', 0.45, None],
             max_per_img=200,
+            # device
+            device=None,
     ):
         super(SSDDetector, self).__init__()
 
@@ -71,6 +73,7 @@ class SSDDetector(nn.Module):
             score_thr=score_thr,
             nms_cfg=nms_cfg,
             max_per_img=max_per_img,
+            device=device,
         )
 
         self.CLASSES = None

@@ -1,5 +1,5 @@
 import os
-from visualization.image import imshow_det_bboxes
+from utils.image import imshow_det_bboxes
 import mmcv
 from mmcv.image import imread
 from cores.misc import dental_detection_classes

@@ -65,6 +65,7 @@ class SSDHead(nn.Module):
             score_thr=0.02,
             nms_cfg=['nms', 0.45, None],
             max_per_img=200,
+            device=None,
     ):
         super(SSDHead, self).__init__()
 
@@ -95,6 +96,7 @@ class SSDHead(nn.Module):
         self.score_thr = score_thr
         self.nms_cfg = nms_cfg
         self.max_per_img = max_per_img
+        self.device = device
 
         """create final cls/bbox convolutions"""
         # [2, 3] -> [1/2, 1/3, 1, 2, 3] @ scale Sk + [1] @ scale sqrt(SkSk+1)
@@ -209,9 +211,14 @@ class SSDHead(nn.Module):
         multi_level_anchors = []
         for i in range(num_levels):
             # [Anchor_per_location * N_of_locations, 4]
-            anchors = self.anchor_generators[i].grid_anchors(
-                featmap_sizes[i], self.anchor_strides[i]
-            )
+            if self.device is None:
+                anchors = self.anchor_generators[i].grid_anchors(
+                    featmap_sizes[i], self.anchor_strides[i]
+                )
+            else:
+                anchors = self.anchor_generators[i].grid_anchors(
+                    featmap_sizes[i], self.anchor_strides[i], device='cpu'
+                )
             # [Number_of_level, Anchor_per_location * N_of_locations, 4]
             multi_level_anchors.append(anchors)
         # [Number_of_images, Number_of_level, Anchor_per_location * N_of_locations, 4]
@@ -227,9 +234,14 @@ class SSDHead(nn.Module):
                 h, w, _ = img_meta['pad_shape']
                 valid_feat_h = min(int(np.ceil(h / anchor_stride[1])), feat_h)
                 valid_feat_w = min(int(np.ceil(w / anchor_stride[0])), feat_w)
-                flags = self.anchor_generators[i].valid_flags(
-                    (feat_h, feat_w), (valid_feat_h, valid_feat_w)
-                )
+                if self.device is None:
+                    flags = self.anchor_generators[i].valid_flags(
+                        (feat_h, feat_w), (valid_feat_h, valid_feat_w)
+                    )
+                else:
+                    flags = self.anchor_generators[i].valid_flags(
+                        (feat_h, feat_w), (valid_feat_h, valid_feat_w), device='cpu'
+                    )
                 # [Number_of_level, Anchor_per_location * N_of_locations]
                 multi_level_flags.append(flags)
             # [Number_of_images, Number_of_level, Anchor_per_location * N_of_locations]
@@ -259,14 +271,23 @@ class SSDHead(nn.Module):
 
         assert len(cls_scores) == len(bbox_preds)
         num_levels = len(cls_scores)
-
-        mlvl_anchors = [
-            self.anchor_generators[i].grid_anchors(
-                featmap_size=cls_scores[i].size()[-2:],
-                stride=self.anchor_strides[i]
-            )
-            for i in range(num_levels)
-        ]
+        if self.device is None:
+            mlvl_anchors = [
+                self.anchor_generators[i].grid_anchors(
+                    featmap_size=cls_scores[i].size()[-2:],
+                    stride=self.anchor_strides[i]
+                )
+                for i in range(num_levels)
+            ]
+        else:
+            mlvl_anchors = [
+                self.anchor_generators[i].grid_anchors(
+                    featmap_size=cls_scores[i].size()[-2:],
+                    stride=self.anchor_strides[i],
+                    device='cpu'
+                )
+                for i in range(num_levels)
+            ]
         result_list = []
         for img_id in range(len(img_metas)):
             cls_score_list = [

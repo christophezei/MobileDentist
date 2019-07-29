@@ -12,6 +12,8 @@
             <excludedPath local="true" path="$PROJECT_DIR$/cleaning/711" />
             <excludedPath local="true" path="$PROJECT_DIR$/cleaning/711_converted" />
             <excludedPath local="true" path="$PROJECT_DIR$/demo/results/711_converted" />
+            <excludedPath local="true" path="$PROJECT_DIR$/work_dirs" />
+            <excludedPath local="true" path="$PROJECT_DIR$/datasets/coco" />
           </excludedPaths>
         </serverdata>
       </paths>

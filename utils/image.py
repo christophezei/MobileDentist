@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 from mmcv.image import imread, imwrite
-from visualization.color import color_val
+from utils.color import color_val
 
 
 def imshow(img, win_name='', wait_time=0):

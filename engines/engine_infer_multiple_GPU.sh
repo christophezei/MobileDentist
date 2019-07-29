@@ -2,4 +2,4 @@
 
 PYTHON=/home/yuan/.conda/envs/py36/bin/python
 
-$PYTHON -m torch.distributed.launch --nproc_per_node=3 engines/engine_infer_SSD_COCO_multiple_GPU.py
+$PYTHON -m torch.distributed.launch --nproc_per_node=3 engines/engine_infer_VGGSSD_multiple_GPU.py

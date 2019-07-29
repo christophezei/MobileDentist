@@ -1,6 +1,5 @@
 import os
 from cores.utils.coco_utils import results2json, coco_eval
-import numpy as np
 
 dir_path = os.path.dirname(os.getcwd())
 
@@ -89,14 +88,14 @@ def main():
         #  Average Recall     (AR) @[ IoU=0.95      | maxDets= 10 ] = 0.017
         #  Average Recall     (AR) @[ IoU=0.95      | maxDets=100 ] = 0.017
 
-        coco_eval(
-            result_file=out_file+'.bbox.json',
-            result_type='bbox',
-            coco=ann_file,
-            # iou_thrs=np.linspace(.5, 0.95, np.round((0.95 - .5) / .05) + 1, endpoint=True),
-            iou_thrs=[0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95],
-            max_dets=[1, 10, 100]
-        )
+        # coco_eval(
+        #     result_file=out_file+'.bbox.json',
+        #     result_type='bbox',
+        #     coco=ann_file,
+        #     # iou_thrs=np.linspace(.5, 0.95, np.round((0.95 - .5) / .05) + 1, endpoint=True),
+        #     iou_thrs=[0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95],
+        #     max_dets=[1, 10, 100]
+        # )
 
         # eval
         # Average Precision  (AP) @[ IoU=0.50:0.50 | area=   all | maxDets=100 ] = 0.439
@@ -148,8 +147,8 @@ def main():
             result_file=out_file+'.bbox.json',
             result_type='bbox',
             coco=ann_file,
-            iou_thrs=[0.5, 0.6, 0.7, 0.75, 0.8],
-            max_dets=[1, 10, 100]
+            iou_thrs=[0.2, 0.3, 0.4, 0.5],
+            max_dets=[10]
         )
 
 
