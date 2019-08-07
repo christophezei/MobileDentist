@@ -7,3 +7,5 @@
 /work_dirs/
 /datasets/coco/
 DS_Store
+.idea/
+*__pycache__*

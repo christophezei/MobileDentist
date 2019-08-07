@@ -1,5 +1,4 @@
 import os
-
 from detectors.SSD_VGG16_Detector import SSDDetector
 from utils.checkpoint import load_checkpoint
 from cores.pre_processing.image_transform import ImageTransform
