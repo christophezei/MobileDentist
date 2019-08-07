@@ -1,7 +1,9 @@
 import warnings
 import numpy as np
 import torch
-from ops import nms_cuda, nms_cpu, soft_nms_cpu
+# FIXME: Remove cuda.
+# from ops import nms_cuda, nms_cpu, soft_nms_cpu
+from ops import nms_cpu
 
 
 def nms(dets, iou_thr, device_id=None):
