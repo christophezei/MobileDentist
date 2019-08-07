@@ -22,16 +22,16 @@ dir_path = dir_path + '/MobileDentist'
 print(dir_path)
 
 # checkpoints
-checkpoint_file = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix/epoch_100.pth'
+checkpoint_file = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix_w_imagenorm_fine_tune_phontrans/epoch_300.pth'
 
 # output
 # tmp dir for writing some results
-tmpdir = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix/tmp/'
+tmpdir = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix_w_imagenorm_fine_tune_phontrans/tmp/'
 # final result dir
-out_file = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix/train_data_result'
+out_file = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix_w_imagenorm_fine_tune_phontrans/test_data_result'
 
 # input
-ann_file = dir_path + '/datasets/dental_711/train.pickle'
+ann_file = dir_path + '/datasets/dental_711/test.pickle'
 img_prefix = dir_path + '/cleaning/711_converted/'
 
 # image
@@ -40,7 +40,7 @@ flip = False
 flip_ratio = 0
 img_transform_cfg = \
     dict(
-        mean=[123.675, 116.28, 103.53],
+        mean=[-1, -1, -1],
         std=[1, 1, 1],
         to_rgb=True,
         pad_values=(0, 0, 0),
@@ -122,7 +122,7 @@ def main():
         in_channels=(512, 1024, 512, 256, 256, 256),
         # anchor generate
         anchor_ratios=([2], [2, 3], [2, 3], [2, 3], [2], [2]),
-        anchor_strides=((8, 8), (18, 19), (34, 36), (69, 64), (96, 107), (160, 320)),
+        anchor_strides=((8, 8), (16, 16), (32, 32), (60, 64), (80, 106), (120, 320)),
         basesize_ratios=(0.02, 0.05, 0.08, 0.12, 0.15, 0.18),
         allowed_border=-1,
         # regression

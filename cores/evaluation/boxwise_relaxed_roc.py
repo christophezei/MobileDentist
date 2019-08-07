@@ -1,6 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import metrics
+import os
+
+from cores.evaluation.intersections import cal_IoBB, cal_IoGT, cal_IoU
+dir_path = os.path.dirname(os.getcwd())
 
 
 def match(
@@ -9,7 +13,8 @@ def match(
         threshold,
         num_class,
         classes_in_results,
-        classes_in_dataset
+        classes_in_dataset,
+        IoRelaxed
 ):
     """
     I for number of images.
@@ -44,8 +49,8 @@ def match(
     :return:
     """
 
-    maxiou_match = [[]] * num_class
-    maxiou_confidence = [[]] * num_class
+    maxiou_match = [[] for i in range(num_class)]
+    maxiou_confidence = [[] for i in range(num_class)]
 
     for cat in range(num_class):
     # each class
@@ -73,10 +78,27 @@ def match(
                 for truth_box, truth_label in zip(truth['ann']['bboxes'], truth['ann']['labels']):
                     if truth_label != label_in_dataset:
                         continue
-                    iou = _cal_IoU(
-                        detectedbox=[x_min, y_min, x_max-x_min+1, y_max-y_min+1, prob],
-                        groundtruthbox=[truth_box[0], truth_box[1], truth_box[2]-truth_box[0]+1, truth_box[3]-truth_box[1]+1, 1],
-                    )
+
+                    if IoRelaxed is False:
+                        iou = cal_IoU(
+                            detectedbox=[x_min, y_min, x_max-x_min+1, y_max-y_min+1, prob],
+                            groundtruthbox=[truth_box[0], truth_box[1], truth_box[2]-truth_box[0]+1, truth_box[3]-truth_box[1]+1, 1],
+                        )
+                    else:
+                        iou = max(
+                            cal_IoBB(
+                                detectedbox=[x_min, y_min, x_max-x_min+1, y_max-y_min+1, prob],
+                                groundtruthbox=[truth_box[0], truth_box[1], truth_box[2]-truth_box[0]+1, truth_box[3]-truth_box[1]+1, 1],
+                            ),
+                            cal_IoGT(
+                                detectedbox=[x_min, y_min, x_max-x_min+1, y_max-y_min+1, prob],
+                                groundtruthbox=[truth_box[0], truth_box[1], truth_box[2]-truth_box[0]+1, truth_box[3]-truth_box[1]+1, 1],
+                            ),
+                            cal_IoU(
+                                detectedbox=[x_min, y_min, x_max-x_min+1, y_max-y_min+1, prob],
+                                groundtruthbox=[truth_box[0], truth_box[1], truth_box[2]-truth_box[0]+1, truth_box[3]-truth_box[1]+1, 1],
+                            )
+                        )
 
                     if iou >= threshold:
                         image_wise_match[gt_count][box_count] = prob
@@ -87,8 +109,14 @@ def match(
                 box_count = box_count + 1
 
             for row in range(num_gt):
-                max_index = np.argmax(image_wise_match[row, :])
-                temp_value = image_wise_match[row, max_index]
+
+                # no prediction
+                if len(image_wise_match[row, :]) == 0:
+                    max_index = 0
+                    temp_value = 0
+                else:
+                    max_index = np.argmax(image_wise_match[row, :])
+                    temp_value = image_wise_match[row, max_index]
 
                 if temp_value == 0 or temp_value == -1:
                     # no bbox match a gt.
@@ -167,9 +195,6 @@ def plot(maxiou_match, maxiou_confidence, num_class):
             y_score=confidence,
         )
 
-        import os
-        dir_path = os.path.dirname(os.getcwd())
-
         plt.figure()
         plt.title('ROC')
         plt.xlabel('False Positive rate')
@@ -177,7 +202,7 @@ def plot(maxiou_match, maxiou_confidence, num_class):
         plt.ylim(0, 1)
         plt.plot(fpr, tpr, label='AUC: ' + str(auc))
         plt.legend()
-        plt.savefig(dir_path + '/visualization/a_{}.png'.format(i))
+        plt.savefig(dir_path + '/visualization/boxwise_relaxed_roc_{}.png'.format(i))
 
         plt.figure()
         plt.title('Precision-Recall')
@@ -185,7 +210,7 @@ def plot(maxiou_match, maxiou_confidence, num_class):
         plt.ylabel('Precision')
         plt.axis([0, 1, 0, 1])
         plt.plot(recall, precision, label='mAP: ' + str(AP))
-        plt.savefig(dir_path + '/visualization/b_{}.png'.format(i))
+        plt.savefig(dir_path + '/visualization/boxwise_relaxed_prc_{}.png'.format(i))
         print('auc for class {} is: {}'.format(i, auc))
         print('AP for class {} is: {}'.format(i, AP))
 
@@ -196,13 +221,14 @@ def plot(maxiou_match, maxiou_confidence, num_class):
     print('average AP for all classes is: {}'.format(np.mean(all_AP)))
 
 
-def plot_boxwise_roc(
+def plot_boxwise_relaxed_roc(
         results,
         truths,
         threshold,
         num_class,
         classes_in_results,
         classes_in_dataset,
+        IoRelaxed
 ):
     """
     :param results:
@@ -233,34 +259,7 @@ def plot_boxwise_roc(
     """
 
     assert len(results) == len(truths)
-    maxiou_match, maxiou_confidence = match(results, truths, threshold, num_class, classes_in_results, classes_in_dataset)
+    maxiou_match, maxiou_confidence = match(results, truths, threshold, num_class, classes_in_results, classes_in_dataset, IoRelaxed)
     plot(maxiou_match, maxiou_confidence, num_class)
-
-
-def _cal_IoU(detectedbox, groundtruthbox):
-    """
-    :param detectedbox: list, [leftx_det, topy_det, width_det, height_det, confidence]
-    :param groundtruthbox: list, [leftx_gt, topy_gt, width_gt, height_gt, 1]
-    :return iou:
-    """
-    leftx_det, topy_det, width_det, height_det, _ = detectedbox
-    leftx_gt, topy_gt, width_gt, height_gt, _ = groundtruthbox
-
-    centerx_det = leftx_det + width_det / 2
-    centerx_gt = leftx_gt + width_gt / 2
-    centery_det = topy_det + height_det / 2
-    centery_gt = topy_gt + height_gt / 2
-
-    distancex = abs(centerx_det - centerx_gt) - (width_det + width_gt) / 2
-    distancey = abs(centery_det - centery_gt) - (height_det + height_gt) / 2
-
-    if distancex <= 0 and distancey <= 0:
-        intersection = distancex * distancey
-        union = width_det * height_det + width_gt * height_gt - intersection
-        iou = intersection / union
-        return iou
-    else:
-        return 0
-
 
 

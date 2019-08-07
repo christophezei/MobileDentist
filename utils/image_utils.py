@@ -1,8 +1,9 @@
 import torch
-import numpy as np
 import mmcv
 from collections import Sequence
 from mmcv.image.transforms.resize import _scale_size, imresize
+import numpy as np
+from mmcv.image.transforms.colorspace import bgr2rgb, rgb2bgr
 
 
 def to_tensor(data):
@@ -62,3 +63,22 @@ def imrescale(img, scale, return_scale=False, interpolation='bilinear'):
         return rescaled_img, scale_factor
     else:
         return rescaled_img
+
+
+def imnormalize(img, mean, std, to_rgb=True):
+    img = img.astype(np.float32)
+    if to_rgb:
+        img = bgr2rgb(img)
+
+    if -1 in mean:
+        mean = np.mean(img, axis=(0, 1))
+        return (img - mean) / std
+    else:
+        return (img - mean) / std
+
+
+def imdenormalize(img, mean, std, to_bgr=True):
+    img = (img * std) + mean
+    if to_bgr:
+        img = rgb2bgr(img)
+    return img

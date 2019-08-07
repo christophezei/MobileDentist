@@ -2,4 +2,4 @@
 
 PYTHON=/home/yuan/.conda/envs/py36/bin/python
 
-$PYTHON -m torch.distributed.launch --nproc_per_node=3 engines/engine_train_UNETSSD_de.py
+$PYTHON -m torch.distributed.launch --nproc_per_node=3 engines/engine_train_SSD_de.py

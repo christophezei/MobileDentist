@@ -1,6 +1,7 @@
 import mmcv
 import numpy as np
 import torch
+from utils.image_utils import imnormalize
 
 from utils.image_utils import imrescale
 
@@ -61,7 +62,7 @@ class ImageTransform(object):
 
         # 2. normalize the image
         img_shape = img.shape
-        img = mmcv.imnormalize(img, self.mean, self.std, self.to_rgb)
+        img = imnormalize(img, self.mean, self.std, self.to_rgb)
 
         # 3. flip the image (if needed)
         if flip:

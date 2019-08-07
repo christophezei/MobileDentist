@@ -122,6 +122,7 @@ class Expand(object):
             self.mean = mean[::-1]
         else:
             self.mean = mean
+
         self.min_ratio, self.max_ratio = ratio_range
 
     def __call__(self, img, boxes, labels):
@@ -130,6 +131,9 @@ class Expand(object):
 
         h, w, c = img.shape
         ratio = random.uniform(self.min_ratio, self.max_ratio)
+
+        if -1 in self.mean:
+            self.mean = np.mean(img, axis=(0, 1), dtype=img.dtype)
 
         expand_img = np.full(
             (int(h * ratio), int(w * ratio), c),

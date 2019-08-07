@@ -2,6 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import metrics
 
+import os
+
+dir_path = os.path.dirname(os.getcwd())
+
 
 def match(
         results,
@@ -65,8 +69,8 @@ def match(
 
 def plot(maxiou_confidence, truths, num_class, classes_in_results, classes_in_dataset):
     """
-    :param maxiou_confidence: np.array, 存放所有检测框对应的tp或fp和置信度
-    :param num_groundtruthbox: int, 标注框的总数
+    :param maxiou_confidence: np.array
+    :param num_groundtruthbox: int
     """
     all_auc =[]
     all_AP =[]
@@ -99,9 +103,6 @@ def plot(maxiou_confidence, truths, num_class, classes_in_results, classes_in_da
             y_score=maxiou_confidence[i][:, 0],
         )
 
-        import os
-        dir_path = os.path.dirname(os.getcwd())
-
         plt.figure()
         plt.title('ROC')
         plt.xlabel('False Positive rate')
@@ -109,7 +110,7 @@ def plot(maxiou_confidence, truths, num_class, classes_in_results, classes_in_da
         plt.ylim(0, 1)
         plt.plot(fpr, tpr, label='AUC: ' + str(auc))
         plt.legend()
-        plt.savefig(dir_path + '/visualization/a_{}.png'.format(i))
+        plt.savefig(dir_path + '/visualization/imagewise_roc_{}.png'.format(i))
 
         plt.figure()
         plt.title('Precision-Recall')
@@ -117,7 +118,7 @@ def plot(maxiou_confidence, truths, num_class, classes_in_results, classes_in_da
         plt.ylabel('Precision')
         plt.axis([0, 1, 0, 1])
         plt.plot(recall, precision, label='mAP: ' + str(AP))
-        plt.savefig(dir_path + '/visualization/b_{}.png'.format(i))
+        plt.savefig(dir_path + '/visualization/imagewise_prc_{}.png'.format(i))
         print('auc for class {} is: {}'.format(i, auc))
         print('AP for class {} is: {}'.format(i, AP))
 

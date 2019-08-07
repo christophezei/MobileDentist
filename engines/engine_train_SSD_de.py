@@ -33,12 +33,12 @@ img_prefix = dir_path + '/cleaning/711_converted/'
 ann_file = dir_path + '/datasets/dental_711/train.pickle'
 
 # image
-img_scale = (450, 300)
-flip = False
-flip_ratio = 0
+img_scale = (480, 320)
+flip = True
+flip_ratio = 0.5
 img_norm_cfg = \
     dict(
-        mean=[123.675, 116.28, 103.53],
+        mean=[-1, -1, -1],
         std=[1, 1, 1],
         to_rgb=True,
         pad_values=(0, 0, 0),
@@ -75,7 +75,23 @@ img_norm_cfg = \
 #         min_crop_size=0.3
 #     )
 # )
-extra_aug = None
+extra_aug = dict(
+    photo_metric_distortion=dict(
+        brightness_delta=32,
+        contrast_range=(0.5, 1.5),
+        saturation_range=(0.5, 1.5),
+        hue_delta=18
+    ),
+    expand=dict(
+        mean=img_norm_cfg['mean'],
+        to_rgb=img_norm_cfg['to_rgb'],
+        ratio_range=(1, 3)
+    ),
+    random_crop=dict(
+        min_ious=(0.3, 0.5, 0.7, 0.9),
+        min_crop_size=0.5
+    )
+)
 
 # log
 log_level='INFO'
@@ -88,23 +104,24 @@ log_config = dict(
 )
 
 # read and save model
-work_dir = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix/'
-# resume_from = None
+work_dir = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix_w_imagenorm_fine_tune_phontrans/'
+resume_from = None
 # load_from = dir_path + '/checkpoints/ssd300_coco_vgg16_before_head.pth'
-load_from = dir_path + '/work_dirs/dental_711_w_pretrained/epoch_100.pth'
+# load_from = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix_w_imagenorm/epoch_150.pth'
+load_from = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix_w_imagenorm_fine_tune/epoch_200.pth'
 
 # training config
 seed = None
 do_validation = False
 workflow = [('train', 1)]  # [('train', 2), ('val', 1)] means running 2 epochs for training and 1 epoch for validation,
-total_epochs = 100
+total_epochs = 300
 
 # loading
-workers_per_gpu = 7
+workers_per_gpu = 8
 imgs_per_gpu = 8
 
 # optimizer: SGD
-lr = 2e-3
+lr = 5e-4
 momentum = 0.9
 weight_decay = 5e-4
 grad_clip = dict(max_norm=35, norm_type=2)
@@ -120,7 +137,7 @@ lr_config = dict(
 )
 
 # checkpoints saving. interval for how many epoch.
-checkpoint_config = dict(interval=2)
+checkpoint_config = dict(interval=25)
 
 # set True when input size does not vary a lot
 torch.backends.cudnn.benchmark = True
@@ -180,12 +197,12 @@ def main():
     model = SSDDetector(
         pretrained=None,
         # basic
-        input_size=(480, 320),
+        input_size=img_scale,
         num_classes=4,
         in_channels=(512, 1024, 512, 256, 256, 256),
         # anchor generate
         anchor_ratios=([2], [2, 3], [2, 3], [2, 3], [2], [2]),
-        anchor_strides=((8, 8), (18, 19), (34, 36), (69, 64), (96, 107), (160, 320)),
+        anchor_strides=((8, 8), (16, 16), (32, 32), (60, 64), (80, 106), (120, 320)),
         basesize_ratios=(0.02, 0.05, 0.08, 0.12, 0.15, 0.18),
         allowed_border=-1,
         # regression

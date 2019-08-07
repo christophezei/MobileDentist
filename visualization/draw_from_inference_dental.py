@@ -34,8 +34,8 @@ truth_path = dir_path + '/datasets/dental_711/train.pickle'
 #     ] x number-of-images
 # ]
 
-result_path = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix/train_data_result.pickle'
-save_path = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix/train_data_result/'
+result_path = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix/test_data_result.pickle'
+save_path = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix/test_data_result/'
 
 
 def show_one_image(result, file_path, output_dir):
