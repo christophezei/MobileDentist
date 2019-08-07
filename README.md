@@ -11,4 +11,5 @@ The project is written in pytorch, and has a dependency on [mmcv](https://github
 For running the inference on server, follow the steps:
 1. install requirements
 2. change $LD_LIBRARY_PATH to current env bin path.
-3. change $PYTHONPATH to the home folder of the project /path/to/MobileDentist. 
+3. append the home folder of the project /path/to/MobileDentist to $PYTHONPATH. 
+4. cd into /path/to/MobileDentist, run python setup.py develop
