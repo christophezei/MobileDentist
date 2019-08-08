@@ -1,5 +1,5 @@
 import os
-from detectors.SSD_VGG16_Detector import SSDDetector
+from server_deploy.SSD_VGG16_Detector_server import SSDDetector
 from utils.checkpoint import load_checkpoint
 from cores.pre_processing.image_transform import ImageTransform
 from utils.image_utils import to_tensor
