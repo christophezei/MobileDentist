@@ -1,3 +1,10 @@
+'''
+@Description: In User Settings Edit
+@Author: Yuan Liang 
+@Date: 2019-08-08 16:16:25
+@LastEditTime: 2019-08-08 17:30:08
+@LastEditors: Fan, Hsuan-Wei 
+'''
 import os
 from server_deploy.SSD_VGG16_Detector_server import SSDDetector
 from utils.checkpoint import load_checkpoint
@@ -6,7 +13,7 @@ from utils.image_utils import to_tensor
 import torch
 
 dir_path = os.path.dirname(os.getcwd())
-checkpoint_file = dir_path+'/work_dirs/dental_711_w_pretrained_wt_fix/epoch_100.pth'
+checkpoint_file = dir_path+'/MobileDentist/checkpoints/dental_711_w_pretrained_wt_fix/epoch_100.pth'
 
 device = 'cpu'
 
