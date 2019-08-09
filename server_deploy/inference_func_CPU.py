@@ -62,7 +62,7 @@ def inference_func_CPU(img):
     checkpoint = load_checkpoint(
         model=model,
         filename=checkpoint_file,
-        map_location=None,
+        map_location='cpu',
         strict=False,
         logger=None
     )

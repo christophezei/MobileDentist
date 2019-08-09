@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d58e401-079c-4b3b-ae44-bed981c01100" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_deploy/SSDHead.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_deploy/SSD_VGG16_Detector_server.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_deploy/nms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_deploy/nms_cpu_navie.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_deploy/nms_wrapper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engines/inference_func_CPU.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server_deploy/inference_func_CPU.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_deploy/inference_func_CPU.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,10 +30,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server_deploy/inference_func_CPU.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="21" lean-forward="true" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+            <state relative-caret-position="545">
+              <caret line="81" column="18" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cores/loss/smooth_l1_loss.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -120,12 +125,12 @@
       <find>inds</find>
       <find>nms_cfg</find>
       <find>nms_cpu</find>
-      <find>device</find>
       <find>navie</find>
       <find>nms</find>
       <find>server</find>
       <find>multiclass_nms</find>
       <find>wrapper</find>
+      <find>device</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -189,8 +194,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -198,6 +203,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -208,13 +214,28 @@
             <path>
               <item name="MobileDentist" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/PycharmProjects/MobileDentist" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="cores" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="MobileDentist" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/PycharmProjects/MobileDentist" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="cores" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="loss" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="MobileDentist" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/PycharmProjects/MobileDentist" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="ops" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="MobileDentist" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/PycharmProjects/MobileDentist" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="server_deploy" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -228,7 +249,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/server_deploy" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="web.server" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -405,23 +426,24 @@
       <option name="presentableId" value="Default" />
       <updated>1563333854306</updated>
       <workItem from="1563333856106" duration="31566000" />
-      <workItem from="1563575541918" duration="218067000" />
+      <workItem from="1563575541918" duration="218133000" />
+      <workItem from="1565303896987" duration="336000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="249633000" />
+    <option name="totallyTimeSpent" value="250035000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="982" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3755319" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22790202" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.26435643" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26435643" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3990099" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -472,26 +494,6 @@
     <SUITE FILE_PATH="coverage/MobileDentist$inspect_pkl.coverage" NAME="inspect_pkl Coverage Results" MODIFIED="1564265471596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/visualization" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_roc_deprecated.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="120" column="22" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/visualization/draw_from_inference_dental.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1410">
-          <caret line="94" column="13" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/visualization/draw_from_truth_dental.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -741,9 +743,7 @@
     <entry file="file://$PROJECT_DIR$/demo/csdc.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/result.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/result.jpg" />
     <entry file="file://$PROJECT_DIR$/backbones/SSD_VGG16.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -851,6 +851,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/engines/engine_infer_multiple_GPU.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/result.bbox.json">
+      <provider selected="true" editor-type-id="LargeFileEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server_deploy/SSD_VGG16_Detector_server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server_deploy/SSDHead.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -875,24 +892,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/engines/engine_infer_multiple_GPU.sh">
+    <entry file="file://$PROJECT_DIR$/cores/loss/smooth_l1_loss.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server_deploy/SSD_VGG16_Detector_server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+        <state relative-caret-position="300">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server_deploy/inference_func_CPU.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="21" lean-forward="true" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+        <state relative-caret-position="545">
+          <caret line="81" column="18" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
