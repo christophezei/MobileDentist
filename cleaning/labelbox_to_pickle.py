@@ -87,7 +87,7 @@ def main():
         else:
             image_problems = item_labels['image_problems']
             pigment = 1 if 'pigment' in image_problems else 0
-            soft_deposit = 1 if 'soft_deposit' in image_problems else 0
+            soft_deposit = 1 if 'soft_deposits' in image_problems else 0
             if 'periodontitis' in item_labels.keys():
                 for each_finding in item_labels['periodontitis']:
                     points = each_finding['geometry']

@@ -449,72 +449,11 @@ class SSDHead(nn.Module):
         featmap_sizes = [featmap.size()[-2:] for featmap in cls_scores]
         assert len(featmap_sizes) == len(self.anchor_generators)
 
-        # cls_scores[0].shape
-        # torch.Size([12, 12, 38, 57])
-        # cls_scores[1].shape
-        # torch.Size([12, 20, 19, 29])
-        # cls_scores[2].shape
-        # torch.Size([12, 20, 10, 15])
-        # cls_scores[3].shape
-        # torch.Size([12, 20, 5, 8])
-        # cls_scores[4].shape
-        # torch.Size([12, 12, 3, 6])
-        # cls_scores[5].shape
-        # torch.Size([12, 12, 1, 4])
-        # 3*38*57 + 5*19*29 + 5*10*15 + 5*5*8 + 3*3*6 + 3*1*4 = 10269 anchors in total
-        # print('debug')
-        # print('len(cls_scores)')
-        # print(len(cls_scores))
-        # print('cls_scores[0].shape')
-        # print(cls_scores[0].shape)
-        # print('cls_scores[1].shape')
-        # print(cls_scores[1].shape)
-        # print('cls_scores[2].shape')
-        # print(cls_scores[2].shape)
-        # print('cls_scores[3].shape')
-        # print(cls_scores[3].shape)
-        # print('cls_scores[4].shape')
-        # print(cls_scores[4].shape)
-        # print('cls_scores[5].shape')
-        # print(cls_scores[5].shape)
-
         # anchor_list: [Number_of_images, Number_of_level, Anchor_per_location * N_of_locations, 4].
         # valid_flag_list: [Number_of_images, Number_of_level, Anchor_per_location * N_of_locations].
         anchor_list, valid_flag_list = self.get_anchors(
             featmap_sizes, img_metas
         )
-
-        # print('debug')
-        # print('len(anchor_list)')
-        # print(len(anchor_list))
-        # print('len(anchor_list[0])')
-        # print(len(anchor_list[0]))
-        # print('anchor_list[0][0].shape')
-        # print(anchor_list[0][0].shape)
-        # print('anchor_list[0][1].shape')
-        # print(anchor_list[0][1].shape)
-        # print('anchor_list[0][2].shape')
-        # print(anchor_list[0][2].shape)
-        # print('anchor_list[0][3].shape')
-        # print(anchor_list[0][3].shape)
-        # print('anchor_list[0][4].shape')
-        # print(anchor_list[0][4].shape)
-        # print('anchor_list[0][5].shape')
-        # print(anchor_list[0][5].shape)
-
-        # anchor_list[0][0].shape
-        # torch.Size([6498, 4])
-        # anchor_list[0][1].shape
-        # torch.Size([2755, 4])
-        # anchor_list[0][2].shape
-        # torch.Size([750, 4])
-        # anchor_list[0][3].shape
-        # torch.Size([200, 4])
-        # anchor_list[0][4].shape
-        # torch.Size([54, 4])
-        # anchor_list[0][5].shape
-        # torch.Size([12, 4])
-        # 6498 + 2755 + 750 + 200 + 54 + 12 = 10269 anchors in total
 
         cls_reg_targets = anchor_target(
             anchor_list=anchor_list,
@@ -571,17 +510,6 @@ class SSDHead(nn.Module):
         all_bbox_targets = torch.cat(bbox_targets_list, -2).view(num_images, -1, 4)
         # [Number_of_images, Number_of_levels*Anchor_per_location*N_of_locations, 4]
         all_bbox_weights = torch.cat(bbox_weights_list, -2).view(num_images, -1, 4)
-
-        # print('debug')
-        # print('all_cls_scores: Number_of_images')
-        # print(len(all_cls_scores))
-        # print('all_cls_scores: Number_of_levels x num_classes')
-        # print(all_cls_scores[0].shape)
-        #
-        # print('all_labels: Number_of_images')
-        # print(len(all_labels))
-        # print('all_labels: Number_of_levels')
-        # print(all_labels[0].shape)
 
         losses_cls, losses_bbox = multi_apply(
             self._loss_single,

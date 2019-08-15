@@ -108,6 +108,11 @@ detection labels:
 4: wedge_shaped_defect
 5: calculus
 
+classification labels:
+0: negative
+1: pigment
+
+
 
 MobileDentist Inference pickle (train_data_result.pickle)
 [

@@ -5,8 +5,8 @@ import math
 
 dir_path = os.path.dirname(os.getcwd())
 DATA_PATH = dir_path + '/cleaning/711_converted/'
-ANNOTATION_PAH = dir_path + '/cleaning/export-2019-07-11T20_41_53_coco.pickle'
-SAVE_PATH = dir_path + '/datasets/dental_711/'
+ANNOTATION_PAH = dir_path + '/cleaning/export-2019-07-11T20_41_53_coco_2.pickle'
+SAVE_PATH = dir_path + '/datasets/dental_711_2/'
 
 TRAIN_RATIO = 0.7
 

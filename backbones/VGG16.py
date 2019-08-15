@@ -74,11 +74,6 @@ class VGG(nn.Module):
       (27): ReLU(inplace=True)
       (28): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
       (29): ReLU(inplace=True)
-      (30): MaxPool2d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
-      (31): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(6, 6), dilation=(6, 6))
-      (32): ReLU(inplace=True)
-      (33): Conv2d(1024, 1024, kernel_size=(1, 1), stride=(1, 1))
-      (34): ReLU(inplace=True)
     )
 
     Args:
@@ -115,7 +110,7 @@ class VGG(nn.Module):
         super(VGG, self).__init__()
 
         assert len(dilations) == num_stages
-        assert max(out_indices) <= num_stages
+        # assert max(out_indices) <= num_stages
 
         self.num_classes = num_classes
         self.out_indices = out_indices
@@ -175,13 +170,28 @@ class VGG(nn.Module):
         else:
             raise TypeError('pretrained must be a str or None')
 
+    # def forward(self, x):
+    #     outs = []
+    #     vgg_layers = getattr(self, self.module_name)
+    #     for i, num_blocks in enumerate(self.arch_settings):
+    #         for j in range(*self.range_sub_modules[i]):
+    #             vgg_layer = vgg_layers[j]
+    #             x = vgg_layer(x)
+    #         if i in self.out_indices:
+    #             outs.append(x)
+    #     if self.num_classes > 0:
+    #         x = x.view(x.size(0), -1)
+    #         x = self.classifier(x)
+    #         outs.append(x)
+    #     if len(outs) == 1:
+    #         return outs[0]
+    #     else:
+    #         return tuple(outs)
+
     def forward(self, x):
         outs = []
-        vgg_layers = getattr(self, self.module_name)
-        for i, num_blocks in enumerate(self.arch_settings):
-            for j in range(*self.range_sub_modules[i]):
-                vgg_layer = vgg_layers[j]
-                x = vgg_layer(x)
+        for i, layer in enumerate(self.features):
+            x = layer(x)
             if i in self.out_indices:
                 outs.append(x)
         if self.num_classes > 0:

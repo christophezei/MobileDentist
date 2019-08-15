@@ -22,7 +22,7 @@ image_path = dir_path + '/cleaning/711_converted/'
 #         }
 #     } x number-of-images
 # ]
-truth_path = dir_path + '/datasets/dental_711/train.pickle'
+truth_path = dir_path + '/datasets/dental_711/test.pickle'
 # result_path
 # [
 #     [
@@ -34,8 +34,10 @@ truth_path = dir_path + '/datasets/dental_711/train.pickle'
 #     ] x number-of-images
 # ]
 
-result_path = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix/test_data_result.pickle'
-save_path = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix/test_data_result/'
+result_path = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix_w_imagenorm_fine_tune_phontrans/test_data_result.pickle'
+save_path = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix_w_imagenorm_fine_tune_phontrans/test_data_result/'
+
+threshold = 0.3
 
 
 def show_one_image(result, file_path, output_dir):
@@ -69,7 +71,7 @@ def show_one_image(result, file_path, output_dir):
         labels=found_image_bbox_labels,
         class_names=CLASSES,
         # no thr. show all.
-        score_thr=0.3,
+        score_thr=threshold,
         bbox_color='green',
         text_color='green',
         # thickness (int): Thickness of both lines and fonts.

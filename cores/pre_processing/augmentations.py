@@ -126,28 +126,52 @@ class Expand(object):
         self.min_ratio, self.max_ratio = ratio_range
 
     def __call__(self, img, boxes, labels):
-        if random.randint(2):
+
+        if boxes is None:
+            if random.randint(2):
+                return img, boxes, labels
+
+            h, w, c = img.shape
+            ratio = random.uniform(self.min_ratio, self.max_ratio)
+
+            if -1 in self.mean:
+                self.mean = np.mean(img, axis=(0, 1), dtype=img.dtype)
+
+            expand_img = np.full(
+                (int(h * ratio), int(w * ratio), c),
+                self.mean
+            ).astype(img.dtype)
+
+            left = int(random.uniform(0, w * ratio - w))
+            top = int(random.uniform(0, h * ratio - h))
+
+            expand_img[top:top + h, left:left + w] = img
+            img = expand_img
+
             return img, boxes, labels
+        else:
+            if random.randint(2):
+                return img, boxes, labels
 
-        h, w, c = img.shape
-        ratio = random.uniform(self.min_ratio, self.max_ratio)
+            h, w, c = img.shape
+            ratio = random.uniform(self.min_ratio, self.max_ratio)
 
-        if -1 in self.mean:
-            self.mean = np.mean(img, axis=(0, 1), dtype=img.dtype)
+            if -1 in self.mean:
+                self.mean = np.mean(img, axis=(0, 1), dtype=img.dtype)
 
-        expand_img = np.full(
-            (int(h * ratio), int(w * ratio), c),
-            self.mean
-        ).astype(img.dtype)
+            expand_img = np.full(
+                (int(h * ratio), int(w * ratio), c),
+                self.mean
+            ).astype(img.dtype)
 
-        left = int(random.uniform(0, w * ratio - w))
-        top = int(random.uniform(0, h * ratio - h))
+            left = int(random.uniform(0, w * ratio - w))
+            top = int(random.uniform(0, h * ratio - h))
 
-        expand_img[top:top + h, left:left + w] = img
-        img = expand_img
-        boxes += np.tile((left, top), 2)
+            expand_img[top:top + h, left:left + w] = img
+            img = expand_img
+            boxes += np.tile((left, top), 2)
 
-        return img, boxes, labels
+            return img, boxes, labels
 
 
 class RandomCrop(object):
@@ -171,48 +195,66 @@ class RandomCrop(object):
         self.min_crop_size = min_crop_size
 
     def __call__(self, img, boxes, labels):
-        h, w, c = img.shape
-        while True:
-            mode = random.choice(self.sample_mode)
-            if mode == 1:
-                return img, boxes, labels
 
-            min_iou = mode
-            for i in range(50):
-                new_w = random.uniform(self.min_crop_size * w, w)
-                new_h = random.uniform(self.min_crop_size * h, h)
+        if boxes is None:
+            h, w, c = img.shape
+            while True:
+                mode = random.choice(self.sample_mode)
+                if mode == 1:
+                    return img, boxes, labels
 
-                # h / w in [0.5, 2]
-                if new_h / new_w < 0.5 or new_h / new_w > 2:
-                    continue
+                for i in range(50):
+                    new_w = random.uniform(self.min_crop_size * w, w)
+                    new_h = random.uniform(self.min_crop_size * h, h)
 
-                left = random.uniform(w - new_w)
-                top = random.uniform(h - new_h)
+                    # h / w in [0.5, 2]
+                    if new_h / new_w < 0.5 or new_h / new_w > 2:
+                        continue
 
-                patch = np.array((int(left), int(top), int(left + new_w),
-                                  int(top + new_h)))
-                overlaps = bbox_overlaps_np(
-                    patch.reshape(-1, 4), boxes.reshape(-1, 4)).reshape(-1)
-                if overlaps.min() < min_iou:
-                    continue
+                    return img, boxes, labels
+        else:
+            h, w, c = img.shape
+            while True:
+                mode = random.choice(self.sample_mode)
+                if mode == 1:
+                    return img, boxes, labels
 
-                # center of boxes should inside the crop img
-                center = (boxes[:, :2] + boxes[:, 2:]) / 2
-                mask = (center[:, 0] > patch[0]) * (
-                    center[:, 1] > patch[1]) * (center[:, 0] < patch[2]) * (
-                        center[:, 1] < patch[3])
-                if not mask.any():
-                    continue
-                boxes = boxes[mask]
-                labels = labels[mask]
+                min_iou = mode
+                for i in range(50):
+                    new_w = random.uniform(self.min_crop_size * w, w)
+                    new_h = random.uniform(self.min_crop_size * h, h)
 
-                # adjust boxes
-                img = img[patch[1]:patch[3], patch[0]:patch[2]]
-                boxes[:, 2:] = boxes[:, 2:].clip(max=patch[2:])
-                boxes[:, :2] = boxes[:, :2].clip(min=patch[:2])
-                boxes -= np.tile(patch[:2], 2)
+                    # h / w in [0.5, 2]
+                    if new_h / new_w < 0.5 or new_h / new_w > 2:
+                        continue
 
-                return img, boxes, labels
+                    left = random.uniform(w - new_w)
+                    top = random.uniform(h - new_h)
+
+                    patch = np.array((int(left), int(top), int(left + new_w),
+                                      int(top + new_h)))
+                    overlaps = bbox_overlaps_np(
+                        patch.reshape(-1, 4), boxes.reshape(-1, 4)).reshape(-1)
+                    if overlaps.min() < min_iou:
+                        continue
+
+                    # center of boxes should inside the crop img
+                    center = (boxes[:, :2] + boxes[:, 2:]) / 2
+                    mask = (center[:, 0] > patch[0]) * (
+                            center[:, 1] > patch[1]) * (center[:, 0] < patch[2]) * (
+                                   center[:, 1] < patch[3])
+                    if not mask.any():
+                        continue
+                    boxes = boxes[mask]
+                    labels = labels[mask]
+
+                    # adjust boxes
+                    img = img[patch[1]:patch[3], patch[0]:patch[2]]
+                    boxes[:, 2:] = boxes[:, 2:].clip(max=patch[2:])
+                    boxes[:, :2] = boxes[:, :2].clip(min=patch[:2])
+                    boxes -= np.tile(patch[:2], 2)
+
+                    return img, boxes, labels
 
 
 class Augmentation(object):

@@ -8,8 +8,8 @@ import torch.distributed as dist
 import torch.multiprocessing as mp
 from torch.utils.data import DataLoader
 
-from datasets.DentalDataset import DentalDataset
-from detectors.SSD_VGG16_Detector import SSDDetector
+from datasets.DentalClassDataset import DentalClassDataset
+from classifiers.VGG16_Classifier import VGGClassifier
 from utils.checkpoint import load_checkpoint
 from mmcv.parallel.distributed import MMDistributedDataParallel
 from mmcv.parallel.collate import collate
@@ -22,16 +22,16 @@ dir_path = dir_path + '/MobileDentist'
 print(dir_path)
 
 # checkpoints
-checkpoint_file = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix_w_imagenorm_fine_tune_phontrans/epoch_300.pth'
+checkpoint_file = dir_path + '/work_dirs/dental_711_w_fix_SSD_classification/epoch_100.pth'
 
 # output
 # tmp dir for writing some results
-tmpdir = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix_w_imagenorm_fine_tune_phontrans/tmp/'
+tmpdir = dir_path + '/work_dirs/dental_711_w_fix_SSD_classification/tmp/'
 # final result dir
-out_file = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix_w_imagenorm_fine_tune_phontrans/test_data_result'
+out_file = dir_path + '/work_dirs/dental_711_w_fix_SSD_classification/train_data_result'
 
 # input
-ann_file = dir_path + '/datasets/dental_711/test.pickle'
+ann_file = dir_path + '/datasets/dental_711_2/train.pickle'
 img_prefix = dir_path + '/cleaning/711_converted/'
 
 # image
@@ -48,7 +48,7 @@ img_transform_cfg = \
     )
 
 # loading
-workers_per_gpu = 7
+workers_per_gpu = 8
 imgs_per_gpu = 8
 
 # set True when input size does not vary a lot
@@ -72,12 +72,12 @@ def main():
     dist.init_process_group(backend='nccl', init_method='env://')
 
     # define dataset
-    dataset = DentalDataset(
+    dataset = DentalClassDataset(
         ann_file=ann_file,
         img_prefix=img_prefix,
         img_scale=img_scale,
         img_norm_cfg=img_transform_cfg,
-        multiscale_mode='value',
+        multiscale_mode='value',   # select a scale, rather than random from a range.
         flip_ratio=flip_ratio,
         with_label=False,
         extra_aug=None,
@@ -113,37 +113,22 @@ def main():
     )
 
     # define the model and restore checkpoint
-    model = SSDDetector(
-        pretrained=None,
-        # basic
-        input_size=(480, 320),
-        num_classes=4,
-        in_channels=(512, 1024, 512, 256, 256, 256),
-        # anchor generate
-        anchor_ratios=([2], [2, 3], [2, 3], [2, 3], [2], [2]),
-        anchor_strides=((8, 8), (16, 16), (32, 32), (60, 64), (80, 106), (120, 320)),
-        basesize_ratios=(0.02, 0.05, 0.08, 0.12, 0.15, 0.18),
-        allowed_border=-1,
-        # regression
-        target_means=(.0, .0, .0, .0),
-        target_stds=(0.1, 0.1, 0.2, 0.2),
-        # box assign
-        pos_iou_thr=0.5,
-        neg_iou_thr=0.5,
-        min_pos_iou=0.,
-        gt_max_assign_all=False,
-        # sampling
-        sampling=False,
-        # balancing the loss
-        neg_pos_ratio=3,
-        # loss
-        smoothl1_beta=1.,
-        # inference nms
-        nms_pre=-1,
-        score_thr=0.02,
-        nms_cfg=['nms', 0.45, None],
-        max_per_img=200,
+    model = VGGClassifier(
+        with_bn=False,
+        num_classes=len(dataset.CLASSES),
+        num_stages=5,
+        dilations=(1, 1, 1, 1, 1),
+        out_indices=(30,),
+        frozen_stages=-1,
+        bn_eval=True,
+        bn_frozen=False,
+        ceil_mode=True,
+        with_last_pool=True,
+        dimension_before_fc=(10, 15),
+        dropout_rate=0.5,
+        pos_loss_weights=torch.tensor((15, 8), dtype=torch.float32, device=torch.device('cuda', rank)),
     )
+
     checkpoint = load_checkpoint(
         model=model,
         filename=checkpoint_file,

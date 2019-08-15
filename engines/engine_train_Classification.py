@@ -13,8 +13,8 @@ import torch.distributed as dist
 import torch.multiprocessing as mp
 from torch.utils.data import DataLoader
 
-from detectors.SSD_VGG16_Detector import SSDDetector
-from datasets.DentalDataset import DentalDataset
+from classifiers.VGG16_Classifier import VGGClassifier
+from datasets.DentalClassDataset import DentalClassDataset
 from mmcv.runner import get_dist_info
 from utils.sampler import DistributedNonGroupSampler
 from mmcv.parallel.collate import collate
@@ -30,7 +30,7 @@ print(dir_path)
 
 # dataset
 img_prefix = dir_path + '/cleaning/711_converted/'
-ann_file = dir_path + '/datasets/dental_711/train.pickle'
+ann_file = dir_path + '/datasets/dental_711_2/train.pickle'
 
 # image
 img_scale = (480, 320)
@@ -46,35 +46,6 @@ img_norm_cfg = \
     )
 
 # Augmentation:
-#   photo_metric_distortion:
-#       brightness_delta=32,
-#       contrast_range=(0.5, 1.5),
-#       saturation_range=(0.5, 1.5),
-#       hue_delta=18
-#   expand:
-#       mean=(0, 0, 0),
-#       to_rgb=True,
-#       ratio_range=(1, 4),
-#   random_crop:
-#       min_ious=(0.1, 0.3, 0.5, 0.7, 0.9),
-#       min_crop_size=0.3
-# extra_aug = dict(
-#     photo_metric_distortion=dict(
-#         brightness_delta=32,
-#         contrast_range=(0.5, 1.5),
-#         saturation_range=(0.5, 1.5),
-#         hue_delta=18
-#     ),
-#     expand=dict(
-#         mean=img_norm_cfg['mean'],
-#         to_rgb=img_norm_cfg['to_rgb'],
-#         ratio_range=(1, 4)
-#     ),
-#     random_crop=dict(
-#         min_ious=(0.1, 0.3, 0.5, 0.7, 0.9),
-#         min_crop_size=0.3
-#     )
-# )
 extra_aug = dict(
     photo_metric_distortion=dict(
         brightness_delta=32,
@@ -104,11 +75,10 @@ log_config = dict(
 )
 
 # read and save model
-work_dir = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix_w_imagenorm_fine_tune_phontrans/'
+work_dir = dir_path + '/work_dirs/dental_711_w_fix_SSD_classification/'
 resume_from = None
-# load_from = dir_path + '/checkpoints/ssd300_coco_vgg16_before_head.pth'
-# load_from = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix_w_imagenorm/epoch_150.pth'
-load_from = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix_w_imagenorm_fine_tune/epoch_200.pth'
+# load_from = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix_w_imagenorm_fine_tune_phontrans/epoch_300.pth'
+load_from = dir_path + '/work_dirs/dental_711_w_fix_SSD_classification/epoch_100.pth'
 
 # training config
 seed = None
@@ -118,7 +88,7 @@ total_epochs = 300
 
 # loading
 workers_per_gpu = 8
-imgs_per_gpu = 8
+imgs_per_gpu = 6
 
 # optimizer: SGD
 lr = 5e-4
@@ -143,7 +113,7 @@ checkpoint_config = dict(interval=25)
 torch.backends.cudnn.benchmark = True
 
 # train head part only 
-train_head_only = False
+train_head_only = True
 
 
 def main():
@@ -180,12 +150,12 @@ def main():
         torch.cuda.manual_seed_all(seed)
 
     # build dataset
-    dental_dataset = DentalDataset(
+    dental_dataset = DentalClassDataset(
         ann_file=ann_file,
         img_prefix=img_prefix,
         img_scale=img_scale,
         img_norm_cfg=img_norm_cfg,
-        multiscale_mode='value', # select a scale, rather than random from a range.
+        multiscale_mode='value',   # select a scale, rather than random from a range.
         flip_ratio=flip_ratio,
         with_label=True,
         extra_aug=extra_aug,
@@ -193,36 +163,20 @@ def main():
     )
 
     # build model
-    model = SSDDetector(
-        pretrained=None,
-        # basic
-        input_size=img_scale,
-        num_classes=4,
-        in_channels=(512, 1024, 512, 256, 256, 256),
-        # anchor generate
-        anchor_ratios=([2], [2, 3], [2, 3], [2, 3], [2], [2]),
-        anchor_strides=((8, 8), (16, 16), (32, 32), (60, 64), (80, 106), (120, 320)),
-        basesize_ratios=(0.02, 0.05, 0.08, 0.12, 0.15, 0.18),
-        allowed_border=-1,
-        # regression
-        target_means=(.0, .0, .0, .0),
-        target_stds=(0.1, 0.1, 0.2, 0.2),
-        # box assign
-        pos_iou_thr=0.5,
-        neg_iou_thr=0.5,
-        min_pos_iou=0.,
-        gt_max_assign_all=False,
-        # sampling
-        sampling=False,
-        # balancing the loss
-        neg_pos_ratio=3,
-        # loss
-        smoothl1_beta=1.,
-        # inference nms
-        nms_pre=-1,
-        score_thr=0.02,
-        nms_cfg=['nms', 0.45, None],
-        max_per_img=200,
+    model = VGGClassifier(
+        with_bn=False,
+        num_classes=len(dental_dataset.CLASSES),
+        num_stages=5,
+        dilations=(1, 1, 1, 1, 1),
+        out_indices=(30,),
+        frozen_stages=-1,
+        bn_eval=True,
+        bn_frozen=False,
+        ceil_mode=True,
+        with_last_pool=True,
+        dimension_before_fc=(10, 15),
+        dropout_rate=0.5,
+        pos_loss_weights=torch.tensor((15, 8), dtype=torch.float32, device=torch.device('cuda', rank)),
     )
     model.CLASSES = dental_dataset.CLASSES
 
@@ -259,76 +213,53 @@ def main():
     )
 
     # put model on gpus
-    # AdaptedDistributedDataParallel(
-    #   (module): SSDDetector(
-    #     (backbone): SSDVGG(
-    #       (features): Sequential(
-    #         (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (1): ReLU(inplace=True)
-    #         (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (3): ReLU(inplace=True)
-    #         (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
-    #         (5): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (6): ReLU(inplace=True)
-    #         (7): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (8): ReLU(inplace=True)
-    #         (9): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
-    #         (10): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (11): ReLU(inplace=True)
-    #         (12): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (13): ReLU(inplace=True)
-    #         (14): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (15): ReLU(inplace=True)
-    #         (16): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
-    #         (17): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (18): ReLU(inplace=True)
-    #         (19): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (20): ReLU(inplace=True)
-    #         (21): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (22): ReLU(inplace=True)
-    #         (23): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
-    #         (24): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (25): ReLU(inplace=True)
-    #         (26): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (27): ReLU(inplace=True)
-    #         (28): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (29): ReLU(inplace=True)
-    #         (30): MaxPool2d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
-    #         (31): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(6, 6), dilation=(6, 6))
-    #         (32): ReLU(inplace=True)
-    #         (33): Conv2d(1024, 1024, kernel_size=(1, 1), stride=(1, 1))
-    #         (34): ReLU(inplace=True)
+
+    # MMDistributedDataParallel(
+    #     (module): VGGClassifier(
+    #       (backbone): VGG(
+    #             (features): Sequential(
+    #             (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    #             (1): ReLU(inplace=True)
+    #             (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    #             (3): ReLU(inplace=True)
+    #             (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
+    #             (5): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    #             (6): ReLU(inplace=True)
+    #             (7): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    #             (8): ReLU(inplace=True)
+    #             (9): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
+    #             (10): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    #             (11): ReLU(inplace=True)
+    #             (12): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    #             (13): ReLU(inplace=True)
+    #             (14): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    #             (15): ReLU(inplace=True)
+    #             (16): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
+    #             (17): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    #             (18): ReLU(inplace=True)
+    #             (19): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    #             (20): ReLU(inplace=True)
+    #             (21): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    #             (22): ReLU(inplace=True)
+    #             (23): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
+    #             (24): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    #             (25): ReLU(inplace=True)
+    #             (26): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    #             (27): ReLU(inplace=True)
+    #             (28): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    #             (29): ReLU(inplace=True)
+    #             (30): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
+    #           )
     #       )
-    #       (extra): Sequential(
-    #         (0): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1))
-    #         (1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
-    #         (2): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1))
-    #         (3): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
-    #         (4): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1))
-    #         (5): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1))
-    #         (6): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1))
-    #         (7): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1))
+    #       (classifier): Sequential(
+    #           (0): Linear(in_features=12800, out_features=4096, bias=True)
+    #           (1): ReLU(inplace=True)
+    #           (2): Dropout(p=0.5, inplace=False)
+    #           (3): Linear(in_features=4096, out_features=4096, bias=True)
+    #           (4): ReLU(inplace=True)
+    #           (5): Dropout(p=0.5, inplace=False)
+    #           (6): Linear(in_features=4096, out_features=2, bias=True)
     #       )
-    #       (l2_norm): L2Norm()
-    #     )
-    #     (bbox_head): SSDHead(
-    #       (reg_convs): ModuleList(
-    #         (0): Conv2d(512, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (1): Conv2d(1024, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (2): Conv2d(512, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (3): Conv2d(256, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (4): Conv2d(256, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (5): Conv2d(256, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #       )
-    #       (cls_convs): ModuleList(
-    #         (0): Conv2d(512, 324, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (1): Conv2d(1024, 486, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (2): Conv2d(512, 486, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (3): Conv2d(256, 486, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (4): Conv2d(256, 324, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #         (5): Conv2d(256, 324, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    #       )
-    #     )
     #   )
     # )
 
@@ -353,14 +284,15 @@ def main():
         pure_model = model.module
     else:
         pure_model = model
+
     for name, param in pure_model.named_parameters():
         if param.requires_grad:
-            print(name, param.shape, param.requires_grad)
+            print(name, param.shape)
 
     if train_head_only:
         train_params = []
         for name, param in pure_model.named_parameters():
-            if 'bbox_head' not in name:
+            if 'classifier' not in name:
                 param.requires_grad = False
             else:
                 train_params.append(param)

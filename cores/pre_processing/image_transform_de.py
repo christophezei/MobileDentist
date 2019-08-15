@@ -2,6 +2,7 @@ import mmcv
 import numpy as np
 import torch
 from utils.image_utils import imnormalize
+from PIL import Image
 
 from utils.image_utils import imrescale
 
@@ -79,6 +80,29 @@ class ImageTransform(object):
         img = img.transpose(2, 0, 1)
 
         return img, img_shape, pad_shape, scale_factor
+
+
+def image_transfer_back(img, scale, cur_shape, ori_shape):
+    """
+    numpy function. tensors not supported.
+    :param img:
+    :param scale:
+    :param cur_shape:
+    :param ori_shape:
+    :return:
+    """
+    # (H, W)
+    if img.shape == cur_shape:
+        img = np.array(Image.fromarray(img).resize(
+            (int(cur_shape[1] / scale), int(cur_shape[0] / scale)),
+            Image.BILINEAR,
+        ))
+
+        img = img[0:ori_shape[0], 0:ori_shape[1]]
+        return img
+
+    else:
+        raise RuntimeError('img shape order not supported')
 
 
 def _bbox_flip(bboxes, img_shape):

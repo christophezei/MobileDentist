@@ -5,13 +5,13 @@ import mmcv
 from torch.utils.data import Dataset
 from mmcv.parallel.data_container import DataContainer
 
-from cores.pre_processing.image_transform_de import ImageTransform, BboxTransform
+from cores.pre_processing.image_transform_de import ImageTransform
 from cores.pre_processing.augmentations import Augmentation, random_scale
 from cores.misc import dental_detection_classes
 from utils.image_utils import to_tensor
 
 
-class DentalDataset(Dataset):
+class DentalClassDataset(Dataset):
     """dental dataset for detection.
 
     Annotation format:
@@ -40,7 +40,7 @@ class DentalDataset(Dataset):
         5: calculus
     """
     CLASSES = (
-        'Periodontal_disease', 'caries', 'calculus',
+        'pigment', 'soft_deposit',
     )
 
     def __init__(
@@ -115,7 +115,6 @@ class DentalDataset(Dataset):
             std=img_norm_cfg['std'],
             to_rgb=img_norm_cfg['to_rgb'],
         )
-        self.bbox_transform = BboxTransform(max_num_gts=None)
 
         # if use extra augmentation
         if extra_aug is not None:
@@ -177,17 +176,14 @@ class DentalDataset(Dataset):
         img = mmcv.imread(osp.join(self.img_prefix, img_info['filename']))
 
         ann = self.get_ann_info(idx)
-        gt_bboxes = ann['bboxes']
-        gt_labels = ann['labels']
-
-        # skip the image if there is no valid gt bbox
-        if len(gt_bboxes) == 0:
-            return None
+        gt_labels = np.zeros([len(self.CLASSES)], dtype=np.float32)
+        for index, item in enumerate(self.CLASSES):
+            gt_labels[index] = int(ann[item] == 1)
 
         # aug 1: apply extra augmentation
         if self.extra_aug is not None:
             img, gt_bboxes, gt_labels = \
-                self.extra_aug(img, gt_bboxes, gt_labels)
+                self.extra_aug(img, None, gt_labels)
 
         # aug 2: apply ordinary augmentations: flipping
         flip = True if np.random.rand() < self.flip_ratio else False
@@ -201,9 +197,6 @@ class DentalDataset(Dataset):
             )
 
         img = img.copy()
-        gt_bboxes = self.bbox_transform(
-            bboxes=gt_bboxes, img_shape=img_shape, scale_factor=scale_factor, flip=flip
-        )
 
         img_meta = dict(
             ori_shape=(img_info['height'], img_info['width'], 3),
@@ -216,10 +209,9 @@ class DentalDataset(Dataset):
         data = dict(
             img=DataContainer(to_tensor(img), stack=True),
             img_meta=DataContainer(data=img_meta, cpu_only=True),
-            gt_bboxes=DataContainer(data=to_tensor(gt_bboxes))
         )
         if self.with_label:
-            data['gt_labels'] = DataContainer(to_tensor(gt_labels))
+            data['gt_labels'] = DataContainer(to_tensor(gt_labels), stack=False)
 
         return data
 
@@ -253,27 +245,5 @@ class DentalDataset(Dataset):
         return valid_inds
 
     def get_ann_info(self, idx):
-        ann_info = self.img_infos[idx]['ann']
-
-        gt_bboxes = []
-        gt_labels = []
-
-        # filter out useless labels. fix the labels for the training case.
-        for bbox, label in zip(ann_info['bboxes'], ann_info['labels']):
-            if self.cat2label[label] == -1:
-                pass
-            else:
-                gt_bboxes.append(bbox)
-                gt_labels.append(self.cat2label[label])
-
-        if gt_bboxes:
-            gt_bboxes = np.array(gt_bboxes, dtype=np.float32)
-            gt_labels = np.array(gt_labels, dtype=np.int64)
-        else:
-            gt_bboxes = np.zeros((0, 4), dtype=np.float32)
-            gt_labels = np.array([], dtype=np.int64)
-
-        ann = dict(
-            bboxes=gt_bboxes, labels=gt_labels)
-
-        return ann
+        ann_info = self.img_infos[idx]
+        return ann_info
