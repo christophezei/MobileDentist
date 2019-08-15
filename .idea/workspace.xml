@@ -2,36 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d58e401-079c-4b3b-ae44-bed981c01100" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/classifiers/GradCam.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classifiers/VGG16_Classifier.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classifiers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cores/evaluation/imagewise_classification_roc.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datasets/DentalClassDataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/cjtjj8pofbb5b0bqp35txi9dq.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/cjtqwnl2g711i0bqp79st100j.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/cjtr82h1n9nuy0bqp5uymgstz.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/cjtrbpd8m9r1y0bqpoya6ad02_result.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engines/engine_infer_Classification_multiple_GPU.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engines/engine_simple_infer_Classification.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engines/engine_train_Classification.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_deploy/inference_Classification_func_CPU.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/visualization/compare_classification_and_truth.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anchor_heads/SSDHead.py" beforeDir="false" afterPath="$PROJECT_DIR$/anchor_heads/SSDHead.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backbones/VGG16.py" beforeDir="false" afterPath="$PROJECT_DIR$/backbones/VGG16.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleaning/dataset_split.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleaning/dataset_split.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleaning/labelbox_to_pickle.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleaning/labelbox_to_pickle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cores/pre_processing/augmentations.py" beforeDir="false" afterPath="$PROJECT_DIR$/cores/pre_processing/augmentations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cores/pre_processing/image_transform_de.py" beforeDir="false" afterPath="$PROJECT_DIR$/cores/pre_processing/image_transform_de.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datasets/DentalDataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/DentalDataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engines/engine_infer_VGGSSD_multiple_GPU.py" beforeDir="false" afterPath="$PROJECT_DIR$/engines/engine_infer_VGGSSD_multiple_GPU.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engines/engine_infer_multiple_GPU.sh" beforeDir="false" afterPath="$PROJECT_DIR$/engines/engine_infer_multiple_GPU.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engines/engine_train_SSD_de.py" beforeDir="false" afterPath="$PROJECT_DIR$/engines/engine_train_SSD_de.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engines/engine_train_multiple_GPU.sh" beforeDir="false" afterPath="$PROJECT_DIR$/engines/engine_train_multiple_GPU.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engines/format_explainer" beforeDir="false" afterPath="$PROJECT_DIR$/engines/format_explainer" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ops/nms_wrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/ops/nms_wrapper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/draw_from_inference_dental.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/draw_from_inference_dental.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/inspect_pkl.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/inspect_pkl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engines/engine_simple_infer_Classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/engines/engine_simple_infer_Classification.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_deploy/inference_Classification_func_CPU.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_deploy/inference_Classification_func_CPU.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,38 +25,13 @@
     <expand />
     <select />
   </component>
-  <component name="DockManager">
-    <window id="6">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/server_deploy/inference_func_CPU.py">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-498">
-                    <caret line="24" selection-start-line="24" selection-end-line="24" selection-end-column="28" />
-                    <folding>
-                      <element signature="e#0#9#0" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/engines/engine_simple_infer_Classification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="21" lean-forward="true" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="166">
+              <caret line="176" column="31" lean-forward="true" selection-start-line="176" selection-start-column="31" selection-end-line="176" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -101,11 +48,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server_deploy/inference_Classification_func_CPU.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
+            <state relative-caret-position="430">
+              <caret line="123" column="57" selection-start-line="123" selection-start-column="57" selection-end-line="123" selection-end-column="57" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -171,7 +121,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/cores/evaluation/boxwise_roc.py" />
         <option value="$PROJECT_DIR$/cores/utils/coco_utils.py" />
         <option value="$PROJECT_DIR$/engines/engine_simple_infer_SSD.py" />
         <option value="$PROJECT_DIR$/utils/inference.py" />
@@ -221,6 +170,7 @@
         <option value="$PROJECT_DIR$/visualization/inspect_pkl.py" />
         <option value="$PROJECT_DIR$/classifiers/VGG16_Classifier.py" />
         <option value="$PROJECT_DIR$/classifiers/GradCam.py" />
+        <option value="$PROJECT_DIR$/server_deploy/inference_Classification_func_CPU.py" />
         <option value="$PROJECT_DIR$/engines/engine_simple_infer_Classification.py" />
       </list>
     </option>
@@ -251,7 +201,23 @@
             <path>
               <item name="MobileDentist" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/PycharmProjects/MobileDentist" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="engines" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="MobileDentist" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/PycharmProjects/MobileDentist" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="server_deploy" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="MobileDentist" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/PycharmProjects/MobileDentist" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="work_dirs" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="MobileDentist" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/PycharmProjects/MobileDentist" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="work_dirs" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="dental_711_w_fix_SSD_classification" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -448,12 +414,12 @@
       <updated>1563333854306</updated>
       <workItem from="1563333856106" duration="31566000" />
       <workItem from="1563575541918" duration="218133000" />
-      <workItem from="1565303896987" duration="49076000" />
+      <workItem from="1565303896987" duration="49611000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="298775000" />
+    <option name="totallyTimeSpent" value="299310000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -789,23 +755,6 @@
     <entry file="file://$PROJECT_DIR$/demo/example.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/server_deploy/inference_func_CPU.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-498">
-          <caret line="24" selection-start-line="24" selection-end-line="24" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server_deploy/inference_Classification_func_CPU.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classifiers/VGG16_Classifier.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -826,10 +775,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server_deploy/inference_func_CPU.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-498">
+          <caret line="31" selection-start-line="31" selection-end-line="31" selection-end-column="28" />
+          <folding>
+            <element signature="e#157#166#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/engines/engine_simple_infer_Classification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="21" lean-forward="true" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+        <state relative-caret-position="166">
+          <caret line="176" column="31" lean-forward="true" selection-start-line="176" selection-start-column="31" selection-end-line="176" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server_deploy/inference_Classification_func_CPU.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="123" column="57" selection-start-line="123" selection-start-column="57" selection-end-line="123" selection-end-column="57" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
