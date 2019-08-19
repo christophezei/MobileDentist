@@ -6,6 +6,6 @@
 /demo/result.bbox.json
 /work_dirs/
 /datasets/coco/
-DS_Store
+.DS_Store
 .idea/
 *__pycache__*

@@ -10,7 +10,7 @@ from utils.image_utils import to_tensor
 dir_path = os.path.dirname(os.getcwd())
 
 # checkpoints
-checkpoint_file = dir_path + '/work_dirs/dental_711_w_fix_SSD_classification/epoch_300.pth'
+checkpoint_file = dir_path + '/MobileDentist/checkpoints/dental_711_w_fix_SSD_classification/epoch_300.pth'
 
 # classes
 CLASSES = (
