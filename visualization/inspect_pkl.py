@@ -10,7 +10,7 @@ dir_path = os.path.dirname(os.getcwd())
 # pickle_file = dir_path + '/demo/result.bbox.json'
 # pickle_file = dir_path + '/datasets/dental_711_2/train.pickle'
 # pickle_file = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix/train_data_result.pickle'
-pickle_file = dir_path + '/datasets/dental_711_2/test.pickle'
+pickle_file = dir_path + '/datasets/dental_711_2/train.pickle'
 # pickle_file = dir_path + '/work_dirs/dental_711_w_pretrained_wt_fix/train_data_result.pickle'
 # pickle_file = dir_path + '/cleaning/export-2019-07-11T20_41_53_coco_2.pickle'
 # pickle_file = dir_path + '/work_dirs/dental_711_w_fix_SSD_classification/test_data_result.pickle'
@@ -22,7 +22,7 @@ def main():
     print(len(dict))
 
     for item in dict:
-        if 'cjtjj8pofbb5b0bqp35txi9dq' in item['filename']:
+        if 'cjteidtk9xejb0bqp8zeuzxt4' in item['filename']:
             print(item)
 
     # for count, item in enumerate(dict):

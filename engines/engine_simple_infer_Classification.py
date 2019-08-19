@@ -25,7 +25,8 @@ CLASSES = (
 device = 'cpu'
 
 # input
-img_path = dir_path+'/demo/cjtjj8pofbb5b0bqp35txi9dq.jpg'
+img_path = dir_path+'/demo/cjt1jtcw5oaa30bqpn2llahta.jpg'
+fake_img_path = dir_path+'/demo/cjt1jtcw5oaa30bqpn2llahta_result.jpg'
 
 # image
 img_scale = (480, 320)

@@ -93,7 +93,7 @@ def inference_func_CPU(raw_img):
     target_layers = ["backbone.features.30"]
     gcam = GradCAM(model=model)
     probs = gcam.forward(img)
-    final_probs = probs.cpu().numpy()
+    final_probs = probs.detach().cpu().numpy()
 
     # heatmap for class 0
     target_class = 0
