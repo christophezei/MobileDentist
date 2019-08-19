@@ -368,11 +368,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.compare_classification_and_truth" />
-      <item itemvalue="Python.draw_from_inference_dental" />
-      <item itemvalue="Python.engine_simple_infer_Classification" />
       <item itemvalue="Python.inspect_pkl" />
+      <item itemvalue="Python.draw_from_inference_dental" />
       <item itemvalue="Python.lighter" />
+      <item itemvalue="Python.compare_classification_and_truth" />
+      <item itemvalue="Python.engine_simple_infer_Classification" />
     </list>
     <recent_temporary>
       <list>
