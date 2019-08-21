@@ -13,7 +13,10 @@ from utils.image_utils import to_tensor
 import torch
 
 dir_path = os.path.dirname(os.getcwd())
-checkpoint_file = dir_path+'/MobileDentist/checkpoints/dental_711_w_pretrained_wt_fix/epoch_100.pth'
+# checkpoint_file = dir_path+'/MobileDentist/checkpoints/dental_711_w_pretrained_wt_fix/epoch_100.pth'
+
+# Deploy within docker
+checkpoint_file = dir_path+'app/MobileDentist/checkpoints/dental_711_w_pretrained_wt_fix/epoch_300.pth'
 
 device = 'cpu'
 
