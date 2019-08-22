@@ -7,13 +7,15 @@ from utils.checkpoint import load_checkpoint
 from cores.pre_processing.image_transform_de import ImageTransform, image_transfer_back
 from utils.image_utils import to_tensor
 import gc
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(find_dotenv())
 
 
 class Classifier(object):
     def __init__(self):
         dir_path = os.path.dirname(os.getcwd())
         # checkpoints
-        checkpoint_file = dir_path + '/flask-app/MobileDentist/checkpoints/dental_711_w_fix_SSD_classification/epoch_300.pth'
+        checkpoint_file = dir_path + f'{os.getenv("CHECKPOINT_DIR")}/dental_711_w_fix_SSD_classification/epoch_300.pth'
         # classes
         CLASSES = (
             'pigment', 'soft_deposit',
