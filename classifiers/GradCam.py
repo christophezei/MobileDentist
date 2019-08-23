@@ -142,8 +142,8 @@ def save_gradcam(filename, gcam, paper_cmap=False):
     cv2.imwrite(filename, np.uint8(gcam))
 
 
-def to_heatmap(gcam):
+def to_heatmap(gcam, threshold=0):
+    gcam[gcam < threshold] = 0
     cmap = cm.jet_r(gcam)[..., :3] * 255.0
     cmap = cmap.astype(np.float)
-
     return cmap
