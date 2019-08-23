@@ -2,24 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d58e401-079c-4b3b-ae44-bed981c01100" name="Default Changelist" comment="s">
-      <change afterPath="$PROJECT_DIR$/cores/evaluation/roc_w_colorbar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_froc.py" beforeDir="false" afterPath="$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_froc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cores/evaluation/imagewise_classification_roc.py" beforeDir="false" afterPath="$PROJECT_DIR$/cores/evaluation/imagewise_classification_roc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cores/evaluation/imagewise_roc.py" beforeDir="false" afterPath="$PROJECT_DIR$/cores/evaluation/imagewise_roc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cores/pre_processing/image_transform_de.py" beforeDir="false" afterPath="$PROJECT_DIR$/cores/pre_processing/image_transform_de.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engines/engine_infer_Classification_multiple_GPU.py" beforeDir="false" afterPath="$PROJECT_DIR$/engines/engine_infer_Classification_multiple_GPU.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engines/engine_simple_infer_Classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/engines/engine_simple_infer_Classification.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/compare_classification_and_truth.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/compare_classification_and_truth.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/compare_detection_and_truth.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/compare_detection_and_truth.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/gradcam_over_img-backbone.features.27.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/gradcam_over_img-backbone.features.27.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/imagewise_classification_prc_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/imagewise_classification_prc_0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/imagewise_classification_prc_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/imagewise_classification_prc_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/imagewise_classification_prc_all.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/imagewise_classification_prc_all.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/imagewise_classification_roc_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/imagewise_classification_roc_0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/imagewise_classification_roc_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/imagewise_classification_roc_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/imagewise_classification_roc_all.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/imagewise_classification_roc_all.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_deploy/inference_func_CPU.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_deploy/inference_func_CPU.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualization/boxwise_relaxed_froc_0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/boxwise_relaxed_froc_0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualization/boxwise_relaxed_froc_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/boxwise_relaxed_froc_1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualization/boxwise_relaxed_froc_2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/boxwise_relaxed_froc_2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualization/imagewise_roc_0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/imagewise_roc_0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualization/imagewise_roc_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/imagewise_roc_1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualization/imagewise_roc_2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/imagewise_roc_2.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,10 +33,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/engines/engine_simple_infer_Classification.py">
+        <entry file="file://$PROJECT_DIR$/visualization/compare_detection_and_truth.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="175" column="36" selection-start-line="175" selection-start-column="36" selection-end-line="175" selection-end-column="36" />
+            <state relative-caret-position="-72">
+              <caret line="40" column="51" lean-forward="true" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -56,25 +45,40 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cores/pre_processing/image_transform_de.py">
+        <entry file="file://$PROJECT_DIR$/server_deploy/inference_func_CPU.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
+            <state relative-caret-position="225">
+              <caret line="62" column="27" lean-forward="true" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#157#166#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server_deploy/inference_Classification_func_CPU.py">
+        <entry file="file://$PROJECT_DIR$/server_deploy/SSD_VGG16_Detector_server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="125" selection-start-line="125" selection-end-line="130" selection-end-column="9" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-448">
+              <caret line="63" column="48" selection-start-line="63" selection-start-column="48" selection-end-line="63" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server_deploy/SSDHead.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="371" column="37" selection-start-line="371" selection-start-column="37" selection-end-line="371" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server_deploy/nms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="263">
+              <caret line="50" column="68" selection-start-line="50" selection-start-column="61" selection-end-line="50" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -90,7 +94,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pos_loss_weights</find>
       <find>ImageTransform</find>
       <find>inference_single</find>
       <find>ori_shape</find>
@@ -120,6 +123,7 @@
       <find>colorline</find>
       <find>forward</find>
       <find>log</find>
+      <find>nms_cfg</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -145,7 +149,6 @@
         <option value="$PROJECT_DIR$/server_deploy/SSD_VGG16_Detector_server.py" />
         <option value="$PROJECT_DIR$/server_deploy/SSDHead.py" />
         <option value="$PROJECT_DIR$/server_deploy/nms.py" />
-        <option value="$PROJECT_DIR$/server_deploy/inference_func_CPU.py" />
         <option value="$PROJECT_DIR$/engines/format_explainer" />
         <option value="$PROJECT_DIR$/anchor_heads/SSDHead.py" />
         <option value="$PROJECT_DIR$/datasets/CustomDataset_just_for_remove.py" />
@@ -179,10 +182,11 @@
         <option value="$PROJECT_DIR$/visualization/compare_classification_and_truth.py" />
         <option value="$PROJECT_DIR$/engines/engine_simple_infer_Classification.py" />
         <option value="$PROJECT_DIR$/cores/pre_processing/image_transform_de.py" />
+        <option value="$PROJECT_DIR$/server_deploy/inference_func_CPU.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="797" />
@@ -204,17 +208,12 @@
             <path>
               <item name="MobileDentist" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/PycharmProjects/MobileDentist" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="demo" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="MobileDentist" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/PycharmProjects/MobileDentist" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="engines" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="MobileDentist" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/PycharmProjects/MobileDentist" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="server_deploy" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="MobileDentist" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/PycharmProjects/MobileDentist" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="visualization" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -271,7 +270,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.engine_simple_infer_Classification">
+  <component name="RunManager" selected="Python.compare_detection_and_truth">
     <configuration name="compare_classification_and_truth" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MobileDentist" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -391,11 +390,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.compare_detection_and_truth" />
         <item itemvalue="Python.engine_simple_infer_Classification" />
         <item itemvalue="Python.compare_classification_and_truth" />
         <item itemvalue="Python.lighter" />
         <item itemvalue="Python.engine_infer_Classification_multiple_GPU" />
-        <item itemvalue="Python.compare_detection_and_truth" />
       </list>
     </recent_temporary>
   </component>
@@ -416,23 +415,23 @@
       <workItem from="1566248827454" duration="2368000" />
       <workItem from="1566258094029" duration="753000" />
       <workItem from="1566428558347" duration="393000" />
-      <workItem from="1566534284373" duration="8189000" />
+      <workItem from="1566534284373" duration="9637000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="313294000" />
+    <option name="totallyTimeSpent" value="314742000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="797" extended-state="0" />
+    <frame x="0" y="23" width="1920" height="977" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29613733" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22044729" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38865247" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34350282" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3990099" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -462,7 +461,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MobileDentist$labelbox_to_pickle.coverage" NAME="labelbox_to_pickle Coverage Results" MODIFIED="1565681413260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cleaning" />
-    <SUITE FILE_PATH="coverage/MobileDentist$compare_detection_and_truth.coverage" NAME="compare_detection_and_truth Coverage Results" MODIFIED="1566547355941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/visualization" />
+    <SUITE FILE_PATH="coverage/MobileDentist$compare_detection_and_truth.coverage" NAME="compare_detection_and_truth Coverage Results" MODIFIED="1566596619974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/visualization" />
     <SUITE FILE_PATH="coverage/MobileDentist$dimension_distribution.coverage" NAME="dimension_distribution Coverage Results" MODIFIED="1563597667397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_analysis" />
     <SUITE FILE_PATH="coverage/MobileDentist$VGG16.coverage" NAME="VGG16 Coverage Results" MODIFIED="1565665921596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backbones" />
     <SUITE FILE_PATH="coverage/MobileDentist$engine_simple_infer_SSD.coverage" NAME="engine_simple_infer_SSD Coverage Results" MODIFIED="1565670887365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engines" />
@@ -493,23 +492,6 @@
     <SUITE FILE_PATH="coverage/MobileDentist$inspect_pkl.coverage" NAME="inspect_pkl Coverage Results" MODIFIED="1565838343223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/visualization" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/visualization/gradcam-backbone.features.28.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cores/bbox/transforms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/anchor_heads/SSDHead_COCO.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="327" selection-start-line="327" selection-end-line="328" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm2019.1/remote_sources/-479841305/-683762071/mmcv/image/transforms/geometry.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="557">
@@ -594,16 +576,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server_deploy/inference_func_CPU.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
-          <folding>
-            <element signature="e#157#166#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/visualization/inspect_pkl.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -664,16 +636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/visualization/compare_detection_and_truth.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1578">
-          <caret line="32" column="11" lean-forward="true" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cores/evaluation/roc_w_colorbar.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-316">
@@ -688,16 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-288">
           <caret line="112" column="4" selection-start-line="112" selection-start-column="4" selection-end-line="112" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_froc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="205" column="89" selection-start-line="205" selection-start-column="89" selection-end-line="205" selection-end-column="89" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -760,16 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cores/evaluation/imagewise_roc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="94" column="32" lean-forward="true" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demo/cjt1jtcw5oaa30bqpn2llahta.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -805,10 +747,71 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cores/pre_processing/image_transform_de.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
+        <state relative-caret-position="544">
+          <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_froc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="180" column="22" selection-start-line="180" selection-start-column="8" selection-end-line="180" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cores/evaluation/imagewise_roc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-81">
+          <caret line="101" column="32" lean-forward="true" selection-start-line="101" selection-start-column="32" selection-end-line="101" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server_deploy/nms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="50" column="68" selection-start-line="50" selection-start-column="61" selection-end-line="50" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server_deploy/SSDHead.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="371" column="37" selection-start-line="371" selection-start-column="37" selection-end-line="371" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server_deploy/SSD_VGG16_Detector_server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-448">
+          <caret line="63" column="48" selection-start-line="63" selection-start-column="48" selection-end-line="63" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualization/compare_detection_and_truth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-72">
+          <caret line="40" column="51" lean-forward="true" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server_deploy/inference_func_CPU.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="62" column="27" lean-forward="true" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
+          <folding>
+            <element signature="e#157#166#0" expanded="true" />
           </folding>
         </state>
       </provider>

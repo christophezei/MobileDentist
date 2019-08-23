@@ -60,7 +60,7 @@ def inference_func_CPU(img):
         # inference nms
         nms_pre=-1,
         score_thr=0.02,
-        nms_cfg=['nms', 0.45, None],
+        nms_cfg=['nms', 0.3, None],
         max_per_img=200,
         device='cpu'
     )
