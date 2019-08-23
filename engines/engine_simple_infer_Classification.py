@@ -25,7 +25,7 @@ CLASSES = (
 device = 'cpu'
 
 # input
-img_path = dir_path+'/demo/cjt1jtcw5oaa30bqpn2llahta.jpg'
+img_path = dir_path+'/demo/cjt1jtcw5oaa30bqpn2llahta_cropped.jpg'
 fake_img_path = dir_path+'/demo/cjt1jtcw5oaa30bqpn2llahta_result.jpg'
 
 # image
@@ -156,7 +156,7 @@ def main():
     # with torch.no_grad():
     #     result = model.forward_test(img=img, img_meta=img_meta, rescale=False)
 
-    target_layers = ["backbone.features.30", "backbone.features.29", "backbone.features.28", "backbone.features.27"]
+    target_layers = ["backbone.features.30"]
     target_class = 0
     gcam = GradCAM(model=model)
     probs = gcam.forward(img)
@@ -180,37 +180,39 @@ def main():
             ori_shape=raw_img.shape[0:2]
         )
 
-        save_gradcam(
-            filename=osp.join(
-                output_path,
-                "gradcam-{}.png".format(
-                    target_layer
-                ),
-            ),
-            gcam=regions,
-            paper_cmap=True,
-        )
-        save_gradcam(
-            filename=osp.join(
-                output_path,
-                "orishape-gradcam-{}.png".format(
-                    target_layer
-                ),
-            ),
-            gcam=ori_regions,
-            paper_cmap=True,
-        )
-        save_gradcam_over_image(
-            filename=osp.join(
-                output_path,
-                "gradcam_over_img-{}.png".format(
-                    target_layer
-                ),
-            ),
-            gcam=ori_regions,
-            raw_image=raw_img,
-            paper_cmap=False,
-        )
+        print(ori_regions.shape)
+
+        # save_gradcam(
+        #     filename=osp.join(
+        #         output_path,
+        #         "gradcam-{}.png".format(
+        #             target_layer
+        #         ),
+        #     ),
+        #     gcam=regions,
+        #     paper_cmap=True,
+        # )
+        # save_gradcam(
+        #     filename=osp.join(
+        #         output_path,
+        #         "orishape-gradcam-{}.png".format(
+        #             target_layer
+        #         ),
+        #     ),
+        #     gcam=ori_regions,
+        #     paper_cmap=True,
+        # )
+        # save_gradcam_over_image(
+        #     filename=osp.join(
+        #         output_path,
+        #         "gradcam_over_img-{}.png".format(
+        #             target_layer
+        #         ),
+        #     ),
+        #     gcam=ori_regions,
+        #     raw_image=raw_img,
+        #     paper_cmap=False,
+        # )
 
 
 if __name__ == '__main__':

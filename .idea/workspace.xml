@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7d58e401-079c-4b3b-ae44-bed981c01100" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/demo/cjt1jtcw5oaa30bqpn2llahta.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/cjt1jtcw5oaa30bqpn2llahta_result.jpg" afterDir="false" />
+    <list default="true" id="7d58e401-079c-4b3b-ae44-bed981c01100" name="Default Changelist" comment="s">
+      <change afterPath="$PROJECT_DIR$/cores/evaluation/roc_w_colorbar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_froc.py" beforeDir="false" afterPath="$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_froc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cores/evaluation/imagewise_classification_roc.py" beforeDir="false" afterPath="$PROJECT_DIR$/cores/evaluation/imagewise_classification_roc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cores/evaluation/imagewise_roc.py" beforeDir="false" afterPath="$PROJECT_DIR$/cores/evaluation/imagewise_roc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cores/pre_processing/image_transform_de.py" beforeDir="false" afterPath="$PROJECT_DIR$/cores/pre_processing/image_transform_de.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engines/engine_infer_Classification_multiple_GPU.py" beforeDir="false" afterPath="$PROJECT_DIR$/engines/engine_infer_Classification_multiple_GPU.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/engines/engine_simple_infer_Classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/engines/engine_simple_infer_Classification.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_deploy/inference_Classification_func_CPU.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_deploy/inference_Classification_func_CPU.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/gradcam-backbone.features.27.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/gradcam-backbone.features.27.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/gradcam-backbone.features.28.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/gradcam-backbone.features.28.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/gradcam-backbone.features.29.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/gradcam-backbone.features.29.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/gradcam-backbone.features.30.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/gradcam-backbone.features.30.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualization/compare_classification_and_truth.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/compare_classification_and_truth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualization/compare_detection_and_truth.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/compare_detection_and_truth.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/visualization/gradcam_over_img-backbone.features.27.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/gradcam_over_img-backbone.features.27.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/gradcam_over_img-backbone.features.28.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/gradcam_over_img-backbone.features.28.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/gradcam_over_img-backbone.features.29.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/gradcam_over_img-backbone.features.29.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/gradcam_over_img-backbone.features.30.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/gradcam_over_img-backbone.features.30.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/inspect_pkl.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/inspect_pkl.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/orishape-gradcam-backbone.features.27.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/orishape-gradcam-backbone.features.27.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/orishape-gradcam-backbone.features.28.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/orishape-gradcam-backbone.features.28.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/orishape-gradcam-backbone.features.29.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/orishape-gradcam-backbone.features.29.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/orishape-gradcam-backbone.features.30.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/orishape-gradcam-backbone.features.30.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualization/imagewise_classification_prc_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/imagewise_classification_prc_0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualization/imagewise_classification_prc_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/imagewise_classification_prc_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualization/imagewise_classification_prc_all.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/imagewise_classification_prc_all.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualization/imagewise_classification_roc_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/imagewise_classification_roc_0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualization/imagewise_classification_roc_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/imagewise_classification_roc_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualization/imagewise_classification_roc_all.png" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/imagewise_classification_roc_all.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,8 +46,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/engines/engine_simple_infer_Classification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="164" column="15" selection-start-line="164" selection-start-column="10" selection-end-line="164" selection-end-column="15" />
+            <state relative-caret-position="235">
+              <caret line="175" column="36" selection-start-line="175" selection-start-column="36" selection-end-line="175" selection-end-column="36" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -56,10 +56,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cores/pre_processing/image_transform_de.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server_deploy/inference_Classification_func_CPU.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
+            <state relative-caret-position="321">
+              <caret line="125" selection-start-line="125" selection-end-line="130" selection-end-column="9" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -78,15 +90,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>image_dir</find>
-      <find>SEED</find>
-      <find>is T</find>
-      <find>loss</find>
-      <find>what</find>
-      <find>0.3</find>
-      <find>VGGClassifier</find>
-      <find>CLASSES</find>
-      <find>checkpoint_file</find>
       <find>pos_loss_weights</find>
       <find>ImageTransform</find>
       <find>inference_single</find>
@@ -108,6 +111,15 @@
       <find>target_layers</find>
       <find>final_probs</find>
       <find>probs</find>
+      <find>threshold</find>
+      <find>subplots_kwargs</find>
+      <find>label_every</find>
+      <find>luck_label</find>
+      <find>plot</find>
+      <find>test</find>
+      <find>colorline</find>
+      <find>forward</find>
+      <find>log</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -116,19 +128,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/cores/utils/coco_utils.py" />
         <option value="$PROJECT_DIR$/engines/engine_simple_infer_SSD.py" />
         <option value="$PROJECT_DIR$/utils/inference.py" />
         <option value="$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_roc_deprecated.py" />
         <option value="$PROJECT_DIR$/datasets/CustomDataset_de.py" />
         <option value="$PROJECT_DIR$/cores/evaluation/intersections.py" />
         <option value="$PROJECT_DIR$/utils/image_utils.py" />
-        <option value="$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_froc.py" />
         <option value="$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_roc.py" />
         <option value="$PROJECT_DIR$/cores/evaluation/boxwise_strict_froc.py" />
         <option value="$PROJECT_DIR$/cores/evaluation/boxwise_strict_roc.py" />
-        <option value="$PROJECT_DIR$/cores/evaluation/imagewise_roc.py" />
-        <option value="$PROJECT_DIR$/visualization/compare_detection_and_truth.py" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/ops/nms_cpu.py" />
         <option value="$PROJECT_DIR$/ops/nms_cpu_navie.py" />
@@ -154,26 +162,30 @@
         <option value="$PROJECT_DIR$/engines/engine_infer_VGGSSD_multiple_GPU.py" />
         <option value="$PROJECT_DIR$/visualization/draw_from_inference_dental.py" />
         <option value="$PROJECT_DIR$/engines/engine_infer_multiple_GPU.sh" />
-        <option value="$PROJECT_DIR$/cores/evaluation/imagewise_classification_roc.py" />
-        <option value="$PROJECT_DIR$/engines/engine_infer_Classification_multiple_GPU.py" />
-        <option value="$PROJECT_DIR$/visualization/compare_classification_and_truth.py" />
         <option value="$PROJECT_DIR$/datasets/DentalClassDataset.py" />
         <option value="$PROJECT_DIR$/engines/engine_train_multiple_GPU.sh" />
         <option value="$PROJECT_DIR$/engines/engine_train_Classification.py" />
         <option value="$PROJECT_DIR$/cores/bbox/transforms.py" />
-        <option value="$PROJECT_DIR$/cores/pre_processing/image_transform_de.py" />
         <option value="$PROJECT_DIR$/classifiers/VGG16_Classifier.py" />
         <option value="$PROJECT_DIR$/classifiers/GradCam.py" />
         <option value="$PROJECT_DIR$/visualization/inspect_pkl.py" />
-        <option value="$PROJECT_DIR$/engines/engine_simple_infer_Classification.py" />
         <option value="$PROJECT_DIR$/server_deploy/inference_Classification_func_CPU.py" />
+        <option value="$PROJECT_DIR$/cores/evaluation/roc_w_colorbar.py" />
+        <option value="$PROJECT_DIR$/visualization/compare_detection_and_truth.py" />
+        <option value="$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_froc.py" />
+        <option value="$PROJECT_DIR$/engines/engine_infer_Classification_multiple_GPU.py" />
+        <option value="$PROJECT_DIR$/cores/evaluation/imagewise_classification_roc.py" />
+        <option value="$PROJECT_DIR$/cores/evaluation/imagewise_roc.py" />
+        <option value="$PROJECT_DIR$/visualization/compare_classification_and_truth.py" />
+        <option value="$PROJECT_DIR$/engines/engine_simple_infer_Classification.py" />
+        <option value="$PROJECT_DIR$/cores/pre_processing/image_transform_de.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1920" />
-    <option name="height" value="977" />
+    <option name="width" value="1440" />
+    <option name="height" value="797" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -181,6 +193,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -191,7 +204,7 @@
             <path>
               <item name="MobileDentist" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/PycharmProjects/MobileDentist" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="classifiers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="demo" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="MobileDentist" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -207,7 +220,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -221,7 +233,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/demo" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="web.server" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -282,7 +294,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="draw_from_inference_dental" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="compare_detection_and_truth" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MobileDentist" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -295,7 +307,29 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/visualization/draw_from_inference_dental.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/visualization/compare_detection_and_truth.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="engine_infer_Classification_multiple_GPU" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="MobileDentist" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/engines" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/engines/engine_infer_Classification_multiple_GPU.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -318,28 +352,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/engines/engine_simple_infer_Classification.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="inspect_pkl" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="MobileDentist" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/visualization" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/visualization/inspect_pkl.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -371,19 +383,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.compare_classification_and_truth" />
-      <item itemvalue="Python.draw_from_inference_dental" />
-      <item itemvalue="Python.engine_simple_infer_Classification" />
-      <item itemvalue="Python.inspect_pkl" />
       <item itemvalue="Python.lighter" />
+      <item itemvalue="Python.compare_classification_and_truth" />
+      <item itemvalue="Python.engine_simple_infer_Classification" />
+      <item itemvalue="Python.compare_detection_and_truth" />
+      <item itemvalue="Python.engine_infer_Classification_multiple_GPU" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.engine_simple_infer_Classification" />
-        <item itemvalue="Python.inspect_pkl" />
         <item itemvalue="Python.compare_classification_and_truth" />
         <item itemvalue="Python.lighter" />
-        <item itemvalue="Python.draw_from_inference_dental" />
+        <item itemvalue="Python.engine_infer_Classification_multiple_GPU" />
+        <item itemvalue="Python.compare_detection_and_truth" />
       </list>
     </recent_temporary>
   </component>
@@ -402,29 +414,32 @@
       <workItem from="1565303896987" duration="51498000" />
       <workItem from="1566170444844" duration="200000" />
       <workItem from="1566248827454" duration="2368000" />
+      <workItem from="1566258094029" duration="753000" />
+      <workItem from="1566428558347" duration="393000" />
+      <workItem from="1566534284373" duration="8189000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="303765000" />
+    <option name="totallyTimeSpent" value="313294000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="977" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="797" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2140575" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29613733" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.15706214" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38865247" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3990099" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="File Transfer" order="9" visible="true" weight="0.31864408" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.2101695" />
+      <window_info anchor="bottom" id="File Transfer" order="9" weight="0.27375886" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32970297" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
@@ -440,12 +455,18 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="dd" />
+    <MESSAGE value="s" />
+    <option name="LAST_COMMIT_MESSAGE" value="s" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MobileDentist$labelbox_to_pickle.coverage" NAME="labelbox_to_pickle Coverage Results" MODIFIED="1565681413260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cleaning" />
-    <SUITE FILE_PATH="coverage/MobileDentist$compare_detection_and_truth.coverage" NAME="compare_detection_and_truth Coverage Results" MODIFIED="1564781335385" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/visualization" />
+    <SUITE FILE_PATH="coverage/MobileDentist$compare_detection_and_truth.coverage" NAME="compare_detection_and_truth Coverage Results" MODIFIED="1566547355941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/visualization" />
     <SUITE FILE_PATH="coverage/MobileDentist$dimension_distribution.coverage" NAME="dimension_distribution Coverage Results" MODIFIED="1563597667397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_analysis" />
     <SUITE FILE_PATH="coverage/MobileDentist$VGG16.coverage" NAME="VGG16 Coverage Results" MODIFIED="1565665921596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backbones" />
     <SUITE FILE_PATH="coverage/MobileDentist$engine_simple_infer_SSD.coverage" NAME="engine_simple_infer_SSD Coverage Results" MODIFIED="1565670887365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engines" />
+    <SUITE FILE_PATH="coverage/MobileDentist$engine_infer_Classification_multiple_GPU.coverage" NAME="engine_infer_Classification_multiple_GPU Coverage Results" MODIFIED="1566550243601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engines" />
     <SUITE FILE_PATH="coverage/MobileDentist$read_img_size.coverage" NAME="read_img_size Coverage Results" MODIFIED="1563418350167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_analysis" />
     <SUITE FILE_PATH="coverage/MobileDentist$engine_train_SSD_de.coverage" NAME="engine_train_SSD_de Coverage Results" MODIFIED="1563778639634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engines" />
     <SUITE FILE_PATH="coverage/MobileDentist$dataset_split.coverage" NAME="dataset_split Coverage Results" MODIFIED="1565682266958" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cleaning" />
@@ -456,15 +477,15 @@
     <SUITE FILE_PATH="coverage/MobileDentist$engine_draw_from_truth_dental.coverage" NAME="engine_draw_from_truth_dental Coverage Results" MODIFIED="1563512697186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/visualization" />
     <SUITE FILE_PATH="coverage/MobileDentist$engine_draw_from_inference_dental.coverage" NAME="engine_draw_from_inference_dental Coverage Results" MODIFIED="1564601970814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/visualization" />
     <SUITE FILE_PATH="coverage/MobileDentist$lighter_train.coverage" NAME="lighter_train Coverage Results" MODIFIED="1565683007217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/MobileDentist$lighter.coverage" NAME="lighter Coverage Results" MODIFIED="1565751278204" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/MobileDentist$compare_classification_and_truth.coverage" NAME="compare_classification_and_truth Coverage Results" MODIFIED="1565752186143" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/visualization" />
+    <SUITE FILE_PATH="coverage/MobileDentist$lighter.coverage" NAME="lighter Coverage Results" MODIFIED="1566550252002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MobileDentist$compare_classification_and_truth.coverage" NAME="compare_classification_and_truth Coverage Results" MODIFIED="1566550826100" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/visualization" />
     <SUITE FILE_PATH="coverage/MobileDentist$labelbox_to_coco.coverage" NAME="labelbox_to_coco Coverage Results" MODIFIED="1563403924504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cleaning" />
     <SUITE FILE_PATH="coverage/MobileDentist$bbox_aspect_ratio_distribution.coverage" NAME="bbox_aspect_ratio_distribution Coverage Results" MODIFIED="1563419619796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_analysis" />
     <SUITE FILE_PATH="coverage/MobileDentist$visulize.coverage" NAME="visulize Coverage Results" MODIFIED="1563871379692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_analysis" />
     <SUITE FILE_PATH="coverage/MobileDentist$download_images.coverage" NAME="download_images Coverage Results" MODIFIED="1563430363811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cleaning" />
     <SUITE FILE_PATH="coverage/MobileDentist$convertaspect.coverage" NAME="convertaspect Coverage Results" MODIFIED="1563433107315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cleaning" />
     <SUITE FILE_PATH="coverage/MobileDentist$draw_from_inference_dental.coverage" NAME="draw_from_inference_dental Coverage Results" MODIFIED="1565744554685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/visualization" />
-    <SUITE FILE_PATH="coverage/MobileDentist$engine_simple_infer_Classification.coverage" NAME="engine_simple_infer_Classification Coverage Results" MODIFIED="1566251257904" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engines" />
+    <SUITE FILE_PATH="coverage/MobileDentist$engine_simple_infer_Classification.coverage" NAME="engine_simple_infer_Classification Coverage Results" MODIFIED="1566589163178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engines" />
     <SUITE FILE_PATH="coverage/MobileDentist$bbox_relative_dimension_distribution.coverage" NAME="bbox_relative_dimension_distribution Coverage Results" MODIFIED="1563421436304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_analysis" />
     <SUITE FILE_PATH="coverage/MobileDentist$convert_checkpoint.coverage" NAME="convert_checkpoint Coverage Results" MODIFIED="1563778569229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engines" />
     <SUITE FILE_PATH="coverage/MobileDentist$engine_simple_infer_SSD_COCO.coverage" NAME="engine_simple_infer_SSD_COCO Coverage Results" MODIFIED="1565116000324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engines" />
@@ -472,145 +493,6 @@
     <SUITE FILE_PATH="coverage/MobileDentist$inspect_pkl.coverage" NAME="inspect_pkl Coverage Results" MODIFIED="1565838343223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/visualization" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/utils/checkpoint.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engines/engine_infer_VGGSSD_multiple_GPU.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/visualization/draw_from_inference_dental.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-294">
-          <caret line="60" column="69" selection-start-line="60" selection-start-column="69" selection-end-line="60" selection-end-column="69" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cores/evaluation/imagewise_classification_roc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detectors/SSD_VGG16_Detector.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="143" column="22" lean-forward="true" selection-start-line="143" selection-start-column="22" selection-end-line="143" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engines/engine_infer_multiple_GPU.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="56" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engines/lighter.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/visualization/compare_detection_and_truth.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-112">
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engines/engine_infer_Classification_CPU.py" />
-    <entry file="file://$PROJECT_DIR$/visualization/compare_classification_and_truth.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cores/pre_processing/image_transform.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/inference.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/example_result.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engines/engine_simple_infer_SSD.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="26" lean-forward="true" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engines/engine_train_multiple_GPU.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="55" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/DentalClassDataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-69">
-          <caret line="157" selection-start-line="157" selection-end-line="168" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engines/engine_train_Classification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="391" column="5" lean-forward="true" selection-start-line="391" selection-start-column="5" selection-end-line="391" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engines/engine_infer_Classification_multiple_GPU.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3">
-          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/visualization/gradcam-backbone.features.28.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -659,25 +541,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cores/pre_processing/image_transform_de.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="139" selection-start-line="139" selection-end-line="140" selection-end-column="77" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/cjtrbpd8m9r1y0bqpoya6ad02_result.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/cjtr82h1n9nuy0bqp5uymgstz.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/cjtqwnl2g711i0bqp79st100j.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/visualization/orishape-gradcam-backbone.features.27.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -690,21 +553,8 @@
     <entry file="file://$PROJECT_DIR$/visualization/gradcam_over_img-backbone.features.27.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/cjtjj8pofbb5b0bqp35txi9dq.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/demo/example.jpg">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/visualization/inspect_pkl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/visualization/gradcam-backbone.features.30.png">
       <provider selected="true" editor-type-id="images" />
@@ -726,26 +576,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/visualization/orishape-gradcam-backbone.features.30.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classifiers/GradCam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2160">
-          <caret line="144" column="14" selection-start-line="144" selection-start-column="4" selection-end-line="144" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classifiers/VGG16_Classifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2310">
-          <caret line="154" selection-start-line="154" selection-end-line="154" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/visualization/gradcam_over_img-backbone.features.30.png">
       <provider selected="true" editor-type-id="images" />
@@ -774,22 +604,211 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/engines/engine_simple_infer_Classification.py">
+    <entry file="file://$PROJECT_DIR$/visualization/inspect_pkl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="164" column="15" selection-start-line="164" selection-start-column="10" selection-end-line="164" selection-end-column="15" />
+        <state relative-caret-position="195">
+          <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server_deploy/inference_Classification_func_CPU.py">
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
+        <state relative-caret-position="135">
+          <caret line="9" column="49" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engines/engine_infer_SSD_COCO_multiple_GPU.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-600" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engines/lighter_train.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/cjtrbpd8m9r1y0bqpoya6ad02_result.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/cjtr82h1n9nuy0bqp5uymgstz.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/cjtqwnl2g711i0bqp79st100j.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/cjtjj8pofbb5b0bqp35txi9dq.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/cjt1jtcw5oaa30bqpn2llahta_result.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualization/draw_from_inference_dental.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engines/engine_infer_VGGSSD_multiple_GPU.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualization/compare_detection_and_truth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1578">
+          <caret line="32" column="11" lean-forward="true" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cores/evaluation/roc_w_colorbar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-316">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/inference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-288">
+          <caret line="112" column="4" selection-start-line="112" selection-start-column="4" selection-end-line="112" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cores/evaluation/boxwise_relaxed_froc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="205" column="89" selection-start-line="205" selection-start-column="89" selection-end-line="205" selection-end-column="89" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engines/lighter.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engines/engine_infer_multiple_GPU.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classifiers/GradCam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classifiers/VGG16_Classifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="153" column="38" selection-start-line="153" selection-start-column="31" selection-end-line="153" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cores/evaluation/boxwise_strict_froc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualization/compare_classification_and_truth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cores/evaluation/imagewise_classification_roc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="2" lean-forward="true" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cores/evaluation/imagewise_roc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="94" column="32" lean-forward="true" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/cjt1jtcw5oaa30bqpn2llahta.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engines/engine_infer_Classification_multiple_GPU.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2313">
+          <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="177" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server_deploy/inference_Classification_func_CPU.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="125" selection-start-line="125" selection-end-line="130" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engines/engine_simple_infer_Classification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="175" column="36" selection-start-line="175" selection-start-column="36" selection-end-line="175" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cores/pre_processing/image_transform_de.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>

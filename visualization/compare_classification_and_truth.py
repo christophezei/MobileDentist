@@ -21,14 +21,14 @@ dir_path = os.path.dirname(os.getcwd())
 #         }
 #     } x number-of-images
 # ]
-truth_path = dir_path + '/datasets/dental_711_2/train.pickle'
+truth_path = dir_path + '/datasets/dental_711_2/test.pickle'
 # result_path
 # [
 #     [
 #       prob_pigment, prob_soft_deposit
 #     ] x number-of-images
 # ]
-result_path = dir_path + '/work_dirs/dental_711_w_fix_SSD_classification/train_data_result.pickle'
+result_path = dir_path + '/work_dirs/dental_711_w_fix_SSD_classification/test_data_result.pickle'
 # img_save_path = dir_path + '/visualization/a.png'
 
 

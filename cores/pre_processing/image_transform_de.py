@@ -3,6 +3,7 @@ import numpy as np
 import torch
 from utils.image_utils import imnormalize
 from PIL import Image
+import math
 
 from utils.image_utils import imrescale
 
@@ -94,7 +95,7 @@ def image_transfer_back(img, scale, cur_shape, ori_shape):
     # (H, W)
     if img.shape == cur_shape:
         img = np.array(Image.fromarray(img).resize(
-            (int(cur_shape[1] / scale), int(cur_shape[0] / scale)),
+            (int(math.ceil(cur_shape[1] / scale)), int(math.ceil(cur_shape[0] / scale))),
             Image.BILINEAR,
         ))
 

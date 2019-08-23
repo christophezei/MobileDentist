@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import metrics
+import csv
 
 import os
 
@@ -93,6 +94,12 @@ def plot(maxiou_confidence, truths, num_class, classes_in_results, classes_in_da
             y_true=gt,
             y_score=maxiou_confidence[i][:, 0],
         )
+
+        with open(dir_path+'/visualization/imagewise_roc_{}.csv'.format(i), 'a') as csvFile:
+            writer = csv.writer(csvFile)
+            writer.writerow(thresholds)
+            writer.writerow(fpr)
+            writer.writerow(tpr)
 
         precision, recall, thresholds = metrics.precision_recall_curve(
             y_true=gt,

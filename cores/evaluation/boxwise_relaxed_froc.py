@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import os
+import csv
 
 from cores.evaluation.intersections import cal_IoBB, cal_IoGT, cal_IoU
 
@@ -202,6 +203,12 @@ def plot(maxiou_match, maxiou_confidence, num_class, num_images):
         plt.plot(avg_fp, tpr)
         plt.savefig(dir_path + '/visualization/boxwise_relaxed_froc_{}.png'.format(i))
 
+        with open(dir_path+'/visualization/boxwise_relaxed_froc_{}.csv'.format(i), 'a') as csvFile:
+            writer = csv.writer(csvFile)
+            writer.writerow(threshold_list)
+            writer.writerow(tpr)
+            writer.writerow(avg_fp)
+
     all_tpr = np.sum(np.array(all_tp_list), axis=0) / (np.sum(np.array(all_tp_list), axis=0) + np.sum(np.array(all_fn_list), axis=0))
     all_avg_fp = np.sum(np.array(all_fp_list), axis=0) / num_images
 
@@ -212,7 +219,6 @@ def plot(maxiou_match, maxiou_confidence, num_class, num_images):
     plt.ylim(0, 1)
     plt.plot(all_avg_fp, all_tpr)
     plt.savefig(dir_path + '/visualization/boxwise_relaxed_froc_all.png')
-
 
 
 def plot_boxwise_relaxed_froc(

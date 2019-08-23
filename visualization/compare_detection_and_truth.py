@@ -1,12 +1,11 @@
 import os
 import mmcv
-from cores.utils.coco_utils import results2json_w_groundtruth, truths2coco, coco_eval
 
 from cores.evaluation.imagewise_roc import plot_imagewise_roc
-from cores.evaluation.boxwise_strict_roc import plot_boxwise_strict_roc
-from cores.evaluation.boxwise_relaxed_roc import plot_boxwise_relaxed_roc
+# from cores.evaluation.boxwise_strict_roc import plot_boxwise_strict_roc
+# from cores.evaluation.boxwise_relaxed_roc import plot_boxwise_relaxed_roc
 from cores.evaluation.boxwise_relaxed_froc import plot_boxwise_relaxed_froc
-from cores.evaluation.boxwise_strict_froc import plot_boxwise_strict_froc
+# from cores.evaluation.boxwise_strict_froc import plot_boxwise_strict_froc
 from cores.misc import dental_detection_classes
 
 CLASSES = ['Periodontal_disease', 'caries', 'calculus']
@@ -27,7 +26,7 @@ dir_path = os.path.dirname(os.getcwd())
 #         }
 #     } x number-of-images
 # ]
-truth_path = dir_path + '/datasets/dental_711/test.pickle'
+truth_path = dir_path + '/datasets/dental_711_2/test.pickle'
 # result_path
 # [
 #     [
@@ -111,38 +110,38 @@ def main():
         IoRelaxed=True,
     )
 
-    print('plot_boxwise_relaxed_roc')
-    plot_boxwise_relaxed_roc(
-        results=results,
-        truths=truths,
-        threshold=0.5,
-        num_class=3,
-        classes_in_results=CLASSES,
-        classes_in_dataset=dental_detection_classes(),
-        IoRelaxed=True
-    )
-
-    print('plot_boxwise_strict_froc')
-    plot_boxwise_strict_froc(
-        results=results,
-        truths=truths,
-        threshold=0.5,
-        num_class=3,
-        classes_in_results=CLASSES,
-        classes_in_dataset=dental_detection_classes(),
-        IoRelaxed=True
-    )
-
-    print('plot_boxwise_strict_roc')
-    plot_boxwise_strict_roc(
-        results=results,
-        truths=truths,
-        threshold=0.5,
-        num_class=3,
-        classes_in_results=CLASSES,
-        classes_in_dataset=dental_detection_classes(),
-        IoRelaxed=True
-    )
+    # print('plot_boxwise_relaxed_roc')
+    # plot_boxwise_relaxed_roc(
+    #     results=results,
+    #     truths=truths,
+    #     threshold=0.5,
+    #     num_class=3,
+    #     classes_in_results=CLASSES,
+    #     classes_in_dataset=dental_detection_classes(),
+    #     IoRelaxed=True
+    # )
+    #
+    # print('plot_boxwise_strict_froc')
+    # plot_boxwise_strict_froc(
+    #     results=results,
+    #     truths=truths,
+    #     threshold=0.5,
+    #     num_class=3,
+    #     classes_in_results=CLASSES,
+    #     classes_in_dataset=dental_detection_classes(),
+    #     IoRelaxed=True
+    # )
+    #
+    # print('plot_boxwise_strict_roc')
+    # plot_boxwise_strict_roc(
+    #     results=results,
+    #     truths=truths,
+    #     threshold=0.5,
+    #     num_class=3,
+    #     classes_in_results=CLASSES,
+    #     classes_in_dataset=dental_detection_classes(),
+    #     IoRelaxed=True
+    # )
 
     print('plot_imagewise_roc')
     plot_imagewise_roc(

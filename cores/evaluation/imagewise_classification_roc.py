@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import metrics
+import csv
 
 import os
 
@@ -60,6 +61,12 @@ def plot_imagewise_classification_roc(
             y_true=gt[i],
             y_score=predict[i],
         )
+
+        with open(dir_path+'/visualization/imagewise_classification_roc_{}.csv'.format(i), 'a') as csvFile:
+            writer = csv.writer(csvFile)
+            writer.writerow(thresholds)
+            writer.writerow(fpr)
+            writer.writerow(tpr)
 
         precision, recall, thresholds = metrics.precision_recall_curve(
             y_true=gt[i],

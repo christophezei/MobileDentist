@@ -22,7 +22,7 @@ dir_path = dir_path + '/MobileDentist'
 print(dir_path)
 
 # checkpoints
-checkpoint_file = dir_path + '/work_dirs/dental_711_w_fix_SSD_classification/epoch_100.pth'
+checkpoint_file = dir_path + '/work_dirs/dental_711_w_fix_SSD_classification/epoch_300.pth'
 
 # output
 # tmp dir for writing some results
