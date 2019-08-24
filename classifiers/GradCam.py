@@ -5,6 +5,8 @@ import cv2
 import matplotlib.cm as cm
 import numpy as np
 
+PROB_WEIGHT = 3
+
 
 class _BaseWrapper(object):
     """
@@ -144,7 +146,10 @@ def save_gradcam(filename, gcam, paper_cmap=False):
 
 def to_heatmap(gcam, threshold=0):
     threshold = float(threshold)
-    cmap = cm.jet_r(gcam)[..., :3] * 255.0
-    cmap[gcam < threshold] = [0, 0, 0]
+    alpha = gcam[..., None] * PROB_WEIGHT
+    alpha[alpha > 1.0] = 1.0
+    cmap = cm.Reds(gcam)[..., :3] * 255.0
+    cmap = cmap[..., ::-1]
+    # cmap[gcam < threshold] = [0, 0, 0]
     cmap = cmap.astype(np.float)
-    return cmap
+    return cmap, alpha

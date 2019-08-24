@@ -20,7 +20,7 @@ class Detector(object):
     def __init__(self):
         self.device = 'cpu'
         dir_path = os.path.dirname(os.getcwd())
-        checkpoint_file = dir_path + f'{os.getenv("CHECKPOINT_DIR")}/dental_711_w_pretrained_wt_fix/epoch_300.pth'
+        checkpoint_file = dir_path + f'{os.getenv("CHECKPOINT_DIR")}/dental_711_w_pretrained_wt_fix/epoch_100.pth'
         self.img_transform_cfg = \
             dict(
                 mean=[123.675, 116.28, 103.53],
@@ -60,7 +60,7 @@ class Detector(object):
             # inference nms
             nms_pre=-1,
             score_thr=0.02,
-            nms_cfg=['nms', 0.45, None],
+            nms_cfg=['nms', 0.3, None],
             max_per_img=200,
             device='cpu'
         )

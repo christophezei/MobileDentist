@@ -106,7 +106,7 @@ class Classifier(object):
                 cur_shape=regions_0.shape,
                 ori_shape=raw_img.shape[0:2]
             )
-            ori_regions_heatmap_0 = to_heatmap(ori_regions_0, threshold=os.getenv("HEATMAP_THRESHOLD"))
+            ori_regions_heatmap_0, alpha0 = to_heatmap(ori_regions_0, threshold=os.getenv("HEATMAP_THRESHOLD"))
 
         # heatmap for class 1
         target_class = 1
@@ -122,12 +122,12 @@ class Classifier(object):
                 cur_shape=regions_1.shape,
                 ori_shape=raw_img.shape[0:2]
             )
-            ori_regions_heatmap_1 = to_heatmap(ori_regions_1, threshold=os.getenv("HEATMAP_THRESHOLD"))
+            ori_regions_heatmap_1, alpha1 = to_heatmap(ori_regions_1, threshold=os.getenv("HEATMAP_THRESHOLD"))
 
         for x in locals().keys():
             del locals()[x]
         gc.collect()
-        return final_probs, ori_regions_0, ori_regions_1, ori_regions_heatmap_0, ori_regions_heatmap_1
+        return final_probs, ori_regions_0, ori_regions_1, ori_regions_heatmap_0, ori_regions_heatmap_1, alpha0, alpha1
 
 
 classifier = Classifier()
