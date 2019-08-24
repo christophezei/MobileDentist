@@ -64,7 +64,7 @@ class Classifier(object):
             logger=None
         )
 
-    def inference_func_CPU(self, raw_img):
+    def inference_func_CPU(self, raw_img, start_r, end_r):
         # define the model and restore checkpoint
         # define classes
         self.model.CLASSES = self.checkpoint['meta']['CLASSES']
@@ -106,7 +106,7 @@ class Classifier(object):
                 cur_shape=regions_0.shape,
                 ori_shape=raw_img.shape[0:2]
             )
-            ori_regions_heatmap_0, alpha0 = to_heatmap(ori_regions_0, threshold=os.getenv("HEATMAP_THRESHOLD"))
+            ori_regions_heatmap_0, alpha0 = to_heatmap(ori_regions_0, start_r, end_r)
 
         # heatmap for class 1
         target_class = 1
@@ -122,7 +122,7 @@ class Classifier(object):
                 cur_shape=regions_1.shape,
                 ori_shape=raw_img.shape[0:2]
             )
-            ori_regions_heatmap_1, alpha1 = to_heatmap(ori_regions_1, threshold=os.getenv("HEATMAP_THRESHOLD"))
+            ori_regions_heatmap_1, alpha1 = to_heatmap(ori_regions_1, start_r, end_r)
 
         for x in locals().keys():
             del locals()[x]

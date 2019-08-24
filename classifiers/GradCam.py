@@ -144,12 +144,13 @@ def save_gradcam(filename, gcam, paper_cmap=False):
     cv2.imwrite(filename, np.uint8(gcam))
 
 
-def to_heatmap(gcam, threshold=0):
-    threshold = float(threshold)
+def to_heatmap(gcam, start_r, end_r):
+    if start_r != -1 and end_r != -1:
+        gcam[0:start_r,:] = 0
+        gcam[end_r:-1,:] = 0
     alpha = gcam[..., None] * PROB_WEIGHT
     alpha[alpha > 1.0] = 1.0
     cmap = cm.Reds(gcam)[..., :3] * 255.0
     cmap = cmap[..., ::-1]
-    # cmap[gcam < threshold] = [0, 0, 0]
     cmap = cmap.astype(np.float)
     return cmap, alpha
