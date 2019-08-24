@@ -64,7 +64,7 @@ class Classifier(object):
             logger=None
         )
 
-    def inference_func_CPU(self, raw_img, start_r, end_r):
+    def inference_func_CPU(self, raw_img, start_r = -1, end_r = -1):
         # define the model and restore checkpoint
         # define classes
         self.model.CLASSES = self.checkpoint['meta']['CLASSES']
