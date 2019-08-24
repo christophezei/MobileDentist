@@ -152,6 +152,5 @@ def to_heatmap(gcam, start_r, end_r):
     alpha[alpha > 1.0] = 1.0
     cmap = cm.Reds(gcam)[..., :3] * 255.0
     cmap = cmap[..., ::-1]
-    # cmap[gcam < threshold] = [0, 0, 0]
     cmap = cmap.astype(np.float)
     return cmap, alpha
