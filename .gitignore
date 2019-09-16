@@ -9,3 +9,5 @@
 .DS_Store
 .idea/
 *__pycache__*
+.eggs/
+mmdet.egg-info/
